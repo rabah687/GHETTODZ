@@ -130,3 +130,96 @@ nav a {
 nav a:hover {
     color: #d4af37;
 }
+
+/* ==============================
+   BANNIERE PRINCIPALE
+============================== */
+
+.hero {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 60px 8%;
+    background: linear-gradient(
+        90deg,
+        #111111,
+        #292929,
+        #444444
+    );
+    color: white;
+}
+
+.hero-contenu {
+    max-width: 650px;
+}
+
+.hero-petit-titre {
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.hero h2 {
+    font-size: 48px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.hero h2 span {
+    display: block;
+    color: #d4af37;
+}
+
+.hero-description {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #dddddd;
+    margin-bottom: 30px;
+}
+
+.hero-bouton {
+    display: inline-block;
+    padding: 15px 25px;
+    background-color: #d4af37;
+    color: #111111;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.hero-bouton:hover {
+    background-color: white;
+    transform: translateY(-3px);
+}
+
+
+
+.hero-image {
+    display: block;
+    width: 45%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-left: 30px;
+}
+
+
+
+
+
+.hero-image {
+    display: block;
+    width: 81%;
+    height: 480px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 15px;
+    margin-left: 0px;
+    flex-shrink: 0;
+}
+
