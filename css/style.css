@@ -332,3 +332,104 @@ nav a:hover {
         font-size: 25px;
     }
 }
+
+
+/* ==============================
+   SECTION NOUVEAUTES
+============================== */
+
+.nouveautes {
+    padding: 80px 8%;
+    background-color: #111111;
+    color: #ffffff;
+}
+
+.nouveautes-titre {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.nouveautes-titre p {
+    color: #c9a227;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.nouveautes-titre h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.nouveautes-titre span {
+    color: #bbbbbb;
+    font-size: 15px;
+}
+
+.nouveautes-grille {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.nouveaute-carte {
+    background-color: #1c1c1c;
+    padding: 15px;
+    text-align: center;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+.nouveaute-carte:hover {
+    transform: translateY(-8px);
+}
+
+
+.nouveaute-carte img {
+    display: block;
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    background-color: transparent;
+    border-radius: 8px;
+    margin-bottom: 18px;
+}
+
+
+
+
+.nouveaute-carte h3 {
+    color: #c9a227;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.nouveaute-carte p {
+    color: #bbbbbb;
+    font-size: 14px;
+}
+
+/* ADAPTATION TELEPHONE */
+
+@media (max-width: 900px) {
+    .nouveautes-grille {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .nouveautes {
+        padding: 55px 5%;
+    }
+
+    .nouveautes-titre h2 {
+        font-size: 27px;
+    }
+
+    .nouveautes-grille {
+        grid-template-columns: 1fr;
+    }
+}
