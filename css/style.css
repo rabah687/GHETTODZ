@@ -1,5 +1,5 @@
  
- ==============================/*
+/* ==============================
    STYLE GENERAL
 ============================== */
 
@@ -174,58 +174,6 @@ nav a:hover {
     color: #d4af37;
 }
 
-
-.hero-description {
-    font-size: 17px;
-    line-height: 1.7;
-    color: #dddddd;
-    margin-bottom: 30px;
-}
-
-.hero-bouton {
-    display: inline-block;
-    padding: 15px 25px;
-    background-color: #d4af37;
-    color: #111111;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: 0.3s;
-}
-
-.hero-bouton:hover {
-    background-color: white;
-    transform: translateY(-3px);
-}
-
-
-
-.hero-image {
-    display: block;
-    width: 45%;
-    height: 420px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-left: 30px;
-}
-
-
-
-
-
-.hero-image {
-    display: block;
-    width: 81%;
-    height: 480px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 15px;
-    margin-left: 0px;
-    flex-shrink: 0;
-}
-
-/* TEST DE CONFIRMATION CSS */
-
 .hero-description {
     font-size: 17px;
     line-height: 1.7;
@@ -250,8 +198,137 @@ nav a:hover {
 }
 
 .hero-image {
+    display: block;
     width: 430px;
     max-width: 45%;
     height: auto;
     object-fit: contain;
+    object-position: center;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    flex-shrink: 0;
+}
+
+
+
+
+/* ==============================
+   SECTION COLLECTIONS
+============================== */
+
+.collections {
+    padding: 80px 8%;
+    background-color: #f5f5f5;
+}
+
+/* TITRE COLLECTIONS */
+
+.collections-titre {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.collections-titre p {
+    color: #b8962e;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.collections-titre h2 {
+    font-size: 32px;
+    color: #111;
+    margin-bottom: 15px;
+}
+
+.collections-titre span {
+    color: #666;
+    font-size: 16px;
+}
+
+/* GRILLE DES COLLECTIONS */
+
+.collections-grille {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* CARTES */
+
+.collection-carte {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.collection-carte:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* IMAGES */
+
+.collection-carte img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    object-position: center;
+    background-color: #111;
+    display: block;
+    transition: 0.4s;
+}
+
+.collection-carte:hover img {
+    transform: scale(1.05);
+}
+
+/* TITRES DES CARTES */
+
+.collection-carte h3 {
+    font-size: 21px;
+    color: #111;
+    margin: 22px 0 15px;
+}
+
+/* BOUTONS */
+
+.collection-carte a {
+    display: inline-block;
+    padding: 11px 22px;
+    background-color: #d4af37;
+    color: #111;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.collection-carte a:hover {
+    background-color: #111;
+    color: #d4af37;
+}
+
+/* ADAPTATION MOBILE */
+
+@media (max-width: 900px) {
+    .collections-grille {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .collections-grille {
+        grid-template-columns: 1fr;
+    }
+
+    .collections-titre h2 {
+        font-size: 25px;
+    }
 }
