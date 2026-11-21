@@ -1052,3 +1052,199 @@ nav a:hover {
         width: 120px;
     }
 }
+
+
+
+/* ================================
+   SECTION NOS ENSEMBLES
+================================ */
+
+.ensembles {
+    padding: 80px 6%;
+    background: #111111;
+    color: #f5f5f5;
+}
+
+/* TITRE DE LA SECTION */
+
+.ensembles-titre {
+    text-align: center;
+    margin-bottom: 50px;
+    animation: ensemblesTitre 1s ease forwards;
+}
+
+.ensembles-titre p {
+    color: #c9a227;
+    font-size: 14px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.ensembles-titre h2 {
+    color: #d4af37;
+    font-size: 38px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.ensembles-titre span {
+    color: #bdbdbd;
+    font-size: 15px;
+}
+
+/* GRILLE DES CARTES */
+
+.ensembles-grille {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* CARTE PRODUIT */
+
+.ensemble-carte {
+    background: #1b1b1b;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+    animation: ensembleApparition 0.8s ease both;
+}
+
+/* IMAGES */
+ .ensemble-carte img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.5s ease;
+}
+ 
+
+/* NOM DU PRODUIT */
+
+.ensemble-carte h3 {
+    color: #d4af37;
+    font-size: 21px;
+    margin: 20px 0 10px;
+}
+
+/* DESCRIPTION */
+
+.ensemble-carte p {
+    color: #bdbdbd;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* BOUTON DÉCOUVRIR */
+
+.ensemble-carte a {
+    display: inline-block;
+    padding: 11px 25px;
+    border: 1px solid #d4af37;
+    border-radius: 30px;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s ease,
+                color 0.3s ease;
+}
+
+/* EFFET AU SURVOL */
+
+.ensemble-carte:hover {
+    transform: translateY(-10px);
+    border-color: #d4af37;
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.12);
+}
+
+.ensemble-carte:hover img {
+    transform: scale(1.05);
+}
+
+.ensemble-carte a:hover {
+    background: #d4af37;
+    color: #111111;
+}
+
+/* ANIMATIONS */
+
+@keyframes ensemblesTitre {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ensembleApparition {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TABLETTE */
+
+@media (max-width: 900px) {
+    .ensembles-grille {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ensemble-carte img {
+        height: 280px;
+    }
+}
+
+/* TÉLÉPHONE */
+
+@media (max-width: 600px) {
+    .ensembles {
+        padding: 55px 5%;
+    }
+
+    .ensembles-titre h2 {
+        font-size: 28px;
+    }
+
+    .ensembles-grille {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .ensemble-carte img {
+        height: 350px;
+    }
+}
+
+/* ACCESSIBILITÉ */
+
+@media (prefers-reduced-motion: reduce) {
+    .ensembles-titre,
+    .ensemble-carte {
+        animation: none;
+    }
+
+    .ensemble-carte,
+    .ensemble-carte img,
+    .ensemble-carte a {
+        transition: none;
+    }
+}
