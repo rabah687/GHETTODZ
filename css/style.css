@@ -216,10 +216,16 @@ nav a:hover {
    SECTION COLLECTIONS
 ============================== */
 
+
 .collections {
     padding: 80px 8%;
-    background-color: #f5f5f5;
+    background:
+        radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 40%),
+        linear-gradient(135deg, #080808, #171717, #080808);
+    color: white;
+    overflow: hidden;
 }
+
 
 /* TITRE COLLECTIONS */
 
@@ -246,6 +252,89 @@ nav a:hover {
     color: #666;
     font-size: 16px;
 }
+
+
+/* ==============================
+   ANIMATION TITRE COLLECTIONS
+============================== */
+
+
+/* ANIMATION BACKGROUND COLLECTIONS */
+
+.collections {
+    background-size: 200% 200%;
+    animation: collectionsFond 10s ease-in-out infinite alternate;
+}
+
+@keyframes collectionsFond {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 100% 50%;
+    }
+}
+
+
+.collections-titre h2 {
+    animation: collectionsApparition 0.8s ease both;
+    animation-delay: 0.15s;
+}
+
+.collections-titre span {
+    display: inline-block;
+    animation: collectionsApparition 0.8s ease both;
+    animation-delay: 0.3s;
+}
+
+/* LIGNE DOREE SOUS LE TITRE */
+
+.collections-titre h2 {
+    position: relative;
+    display: inline-block;
+    color: #d4af37;
+}
+
+.collections-titre h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 0;
+    height: 3px;
+    background-color: #d4af37;
+    transform: translateX(-50%);
+    animation: collectionsLigne 0.8s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/* MOUVEMENT D'APPARITION */
+
+@keyframes collectionsApparition {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ANIMATION DE LA LIGNE */
+
+@keyframes collectionsLigne {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100px;
+    }
+}
+
 
 /* GRILLE DES COLLECTIONS */
 
@@ -291,10 +380,18 @@ nav a:hover {
 /* TITRES DES CARTES */
 
 .collection-carte h3 {
-    font-size: 21px;
-    color: #111;
-    margin: 22px 0 15px;
+    color: #d4af37;
+    font-size: 22px;
+    font-weight: 700;
+    transition: all 0.4s ease;
 }
+
+.collection-carte:hover h3 {
+    color: #ffffff;
+    transform: translateY(-4px);
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+}
+
 
 /* BOUTONS */
 
@@ -402,9 +499,16 @@ nav a:hover {
 
 
 .nouveaute-carte h3 {
-    color: #c9a227;
-    font-size: 18px;
-    margin-bottom: 8px;
+    color: #d4af37;
+    font-size: 22px;
+    font-weight: 700;
+    transition: all 0.4s ease;
+}
+
+.nouveaute-carte:hover h3 {
+    color: #ffffff;
+    transform: translateY(-4px);
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
 }
 
 .nouveaute-carte p {
@@ -431,5 +535,372 @@ nav a:hover {
 
     .nouveautes-grille {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================
+   SECTION PROMOTIONS
+============================== */
+
+.promotions {
+    padding: 80px 8%;
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+/* TITRE PROMOTIONS */
+
+.promotions-titre {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.promotions-titre p {
+    color: #b8962e;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.promotions-titre h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.promotions-titre span {
+    color: #666;
+    font-size: 16px;
+}
+
+/* GRILLE DES PROMOTIONS */
+
+.promotions-grille {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* CARTES PROMOTIONS */
+
+.promotion-carte {
+    position: relative;
+    background-color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.promotion-carte:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==============================
+   SECTION PROMOTIONS
+============================== */
+
+.promotions {
+    padding: 90px 8%;
+    background:
+        radial-gradient(circle at top left, #292929, transparent 45%),
+        linear-gradient(135deg, #080808, #171717, #080808);
+    color: white;
+    overflow: hidden;
+}
+
+/* TITRE PROMOTIONS */
+
+.promotions-titre {
+    text-align: center;
+    margin-bottom: 55px;
+    animation: promoTitre 0.8s ease both;
+}
+
+.promotions-titre p {
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.promotions-titre h2 {
+    font-size: 38px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.promotions-titre span {
+    color: #bbbbbb;
+    font-size: 16px;
+}
+
+/* GRILLE PROMOTIONS */
+
+.promotions-grille {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* CARTES */
+
+.promotion-carte {
+    position: relative;
+    background: linear-gradient(145deg, #222222, #111111);
+    padding: 18px;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+
+    animation: promoApparition 0.7s ease both;
+}
+
+/* APPARITION PROGRESSIVE */
+
+.promotion-carte:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.promotion-carte:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.promotion-carte:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* SURVOL DES CARTES */
+
+.promotion-carte:hover {
+    transform: translateY(-12px);
+    border-color: #d4af37;
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+/* IMAGES */
+.promotion-carte img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+
+.promotion-carte:hover img {
+    transform: scale(1.07);
+}
+
+/* BADGE REDUCTION */
+
+.promotion-badge {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    background: linear-gradient(135deg, #f5d76e, #b8962e);
+    color: #111111;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: 800;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+    animation: promoBadge 2s ease-in-out infinite;
+}
+
+/* TITRE PRODUIT */
+
+.promotion-carte h3 {
+    color: #d4af37;
+    font-size: 22px;
+    font-weight: 700;
+    transition: all 0.4s ease;
+}
+
+.promotion-carte:hover h3 {
+    color: #ffffff;
+    transform: translateY(-4px);
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+}
+
+/* ANCIEN PRIX */
+
+.ancien-prix {
+    color: #999999;
+    font-size: 15px;
+    text-decoration: line-through;
+    margin-bottom: 8px;
+}
+
+/* NOUVEAU PRIX */
+
+.nouveau-prix {
+    color: #d4af37;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+/* ANIMATIONS */
+
+@keyframes promoApparition {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes promoTitre {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes promoBadge {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+/* ADAPTATION TABLETTE */
+
+@media (max-width: 900px) {
+    .promotions-grille {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ADAPTATION TELEPHONE */
+
+@media (max-width: 550px) {
+    .promotions {
+        padding: 60px 5%;
+    }
+
+    .promotions-titre h2 {
+        font-size: 27px;
+    }
+
+    .promotions-grille {
+        grid-template-columns: 1fr;
+    }
+
+    .promotion-carte img {
+        height: 300px;
+    }
+}
+
+/* REDUIRE LES ANIMATIONS SI NECESSAIRE */
+
+@media (prefers-reduced-motion: reduce) {
+    .promotions-titre,
+    .promotion-carte,
+    .promotion-badge {
+        animation: none;
+    }
+
+    .promotion-carte,
+    .promotion-carte img {
+        transition: none;
+    }
+}
+
+.promotion-carte:hover img {
+    transform: scale(1.04);
+}
+
+/* BADGE REDUCTION */
+
+.promotion-badge {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background-color: #d4af37;
+    color: #111;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* TITRE PRODUIT */
+
+.promotion-carte h3 {
+    color: #111;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* ANCIEN PRIX */
+
+.ancien-prix {
+    color: #888;
+    font-size: 15px;
+    text-decoration: line-through;
+    margin-bottom: 8px;
+}
+
+/* NOUVEAU PRIX */
+
+.nouveau-prix {
+    color: #b8962e;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ADAPTATION TABLETTE */
+
+@media (max-width: 900px) {
+    .promotions-grille {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ADAPTATION TELEPHONE */
+
+@media (max-width: 550px) {
+    .promotions {
+        padding: 55px 5%;
+    }
+
+    .promotions-titre h2 {
+        font-size: 27px;
+    }
+
+    .promotions-grille {
+        grid-template-columns: 1fr;
+    }
+
+    .promotion-carte img {
+        height: 300px;
     }
 }
