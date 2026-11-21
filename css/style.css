@@ -904,3 +904,151 @@ nav a:hover {
         height: 300px;
     }
 }
+
+
+
+/* ==============================
+   BANNIERE COLLECTION HOMME
+============================== */
+
+.collection-homme {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 8%;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212, 175, 55, 0.16),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #080808,
+            #1c1c1c,
+            #080808
+        );
+
+    color: white;
+    overflow: hidden;
+}
+
+/* TITRE COLLECTION HOMME */
+
+.collection-homme h2 {
+    position: relative;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #d4af37;
+    margin-bottom: 25px;
+
+    animation: hommeTitre 0.8s ease both;
+}
+
+/* LIGNE DOREE SOUS LE TITRE */
+
+.collection-homme h2::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+
+    width: 0;
+    height: 3px;
+
+    background-color: #d4af37;
+    transform: translateX(-50%);
+
+    animation: hommeLigne 0.8s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/* DESCRIPTION */
+
+.collection-homme p {
+    color: #cccccc;
+    font-size: 17px;
+    line-height: 1.7;
+    letter-spacing: 1px;
+
+    animation: hommeDescription 0.8s ease both;
+    animation-delay: 0.2s;
+}
+
+/* ANIMATION DU TITRE */
+
+@keyframes hommeTitre {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ANIMATION DE LA LIGNE */
+
+@keyframes hommeLigne {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 120px;
+    }
+}
+
+/* ANIMATION DE LA DESCRIPTION */
+
+@keyframes hommeDescription {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ADAPTATION TELEPHONE */
+
+@media (max-width: 550px) {
+    .collection-homme {
+        min-height: 320px;
+        padding: 55px 5%;
+    }
+
+    .collection-homme h2 {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    .collection-homme p {
+        font-size: 14px;
+    }
+}
+
+/* RESPECT DES ANIMATIONS REDUITES */
+
+@media (prefers-reduced-motion: reduce) {
+    .collection-homme h2,
+    .collection-homme p {
+        animation: none;
+    }
+
+    .collection-homme h2::after {
+        animation: none;
+        width: 120px;
+    }
+}
