@@ -548,6 +548,7 @@ nav a:hover {
 
     .collections-titre h2 {
         font-size: 25px;
+        animation: hommeTitre 0.8s ease both;
     }
 }
 
