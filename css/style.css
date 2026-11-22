@@ -1,4 +1,4 @@
- 
+
 /* ==============================
    STYLE GENERAL
 ============================== */
@@ -50,7 +50,6 @@ header {
     background-color: #111;
     color: white;
 }
-
 /* MENU DE NAVIGATION */
 nav {
     display: flex;
@@ -80,6 +79,8 @@ nav {
     padding: 12px 0;
     white-space: nowrap;
 }
+
+
 /* ESPACE POUR LE BANDEAU FIXE */
 body {
     padding-top: 40px;
@@ -186,7 +187,6 @@ body {
     font-size: 21px;
     transition: transform 0.3s ease;
 }
-
 /* TEXTE */
 
 .panier-texte {
@@ -208,7 +208,6 @@ body {
     font-size: 12px;
     font-weight: bold;
 }
-
 /* EFFET AU SURVOL */
 
 .panier:hover {
@@ -226,8 +225,6 @@ body {
     background: #111;
     color: #d4af37;
 }
-
-
 /* ==============================
    NAVIGATION
 ============================== */
@@ -301,7 +298,6 @@ nav a:hover {
     color: #eeeeee;
     margin-bottom: 30px;
 }
-
 .hero-bouton {
     display: inline-block;
     padding: 15px 30px;
@@ -329,7 +325,6 @@ nav a:hover {
     margin-bottom: 25px;
     flex-shrink: 0;
 }
-
 
 
 
@@ -373,7 +368,6 @@ nav a:hover {
     color: #666;
     font-size: 16px;
 }
-
 
 /* ==============================
    ANIMATION TITRE COLLECTIONS
@@ -429,7 +423,6 @@ nav a:hover {
     animation: collectionsLigne 0.8s ease forwards;
     animation-delay: 0.5s;
 }
-
 /* MOUVEMENT D'APPARITION */
 
 @keyframes collectionsApparition {
@@ -455,8 +448,6 @@ nav a:hover {
         width: 100px;
     }
 }
-
-
 /* GRILLE DES COLLECTIONS */
 
 .collections-grille {
@@ -497,6 +488,7 @@ nav a:hover {
 .collection-carte:hover img {
     transform: scale(1.05);
 }
+
 
 /* TITRES DES CARTES */
 
@@ -581,7 +573,6 @@ nav a:hover {
     font-weight: 800;
     margin-bottom: 12px;
 }
-
 .nouveautes-titre span {
     color: #bbbbbb;
     font-size: 15px;
@@ -614,13 +605,9 @@ nav a:hover {
     object-position: center;
     background-color: transparent;
     border-radius: 8px;
-    margin-bottom: 18px;
-}
+    }
 
-
-
-
-.nouveaute-carte h3 {
+    .nouveaute-carte h3 {
     color: #d4af37;
     font-size: 22px;
     font-weight: 700;
@@ -645,7 +632,6 @@ nav a:hover {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-
 @media (max-width: 500px) {
     .nouveautes {
         padding: 55px 5%;
@@ -684,7 +670,6 @@ nav a:hover {
     letter-spacing: 3px;
     margin-bottom: 12px;
 }
-
 .promotions-titre h2 {
     font-size: 36px;
     font-weight: 800;
@@ -885,7 +870,6 @@ nav a:hover {
     font-size: 24px;
     font-weight: 800;
 }
-
 /* ANIMATIONS */
 
 @keyframes promoApparition {
@@ -949,7 +933,6 @@ nav a:hover {
         height: 300px;
     }
 }
-
 /* REDUIRE LES ANIMATIONS SI NECESSAIRE */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1007,7 +990,6 @@ nav a:hover {
     font-size: 22px;
     font-weight: bold;
 }
-
 /* ADAPTATION TABLETTE */
 
 @media (max-width: 900px) {
@@ -1035,8 +1017,6 @@ nav a:hover {
         height: 300px;
     }
 }
-
-
 
 /* ==============================
    BANNIERE COLLECTION HOMME
@@ -1068,7 +1048,6 @@ nav a:hover {
     color: white;
     overflow: hidden;
 }
-
 /* TITRE COLLECTION HOMME */
 
 .collection-homme h2 {
@@ -1111,7 +1090,6 @@ nav a:hover {
     animation: hommeDescription 0.8s ease both;
     animation-delay: 0.2s;
 }
-
 /* ANIMATION DU TITRE */
 
 @keyframes hommeTitre {
@@ -1137,7 +1115,6 @@ nav a:hover {
         width: 120px;
     }
 }
-
 /* ANIMATION DE LA DESCRIPTION */
 
 @keyframes hommeDescription {
@@ -1169,7 +1146,6 @@ nav a:hover {
         font-size: 14px;
     }
 }
-
 /* RESPECT DES ANIMATIONS REDUITES */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1195,7 +1171,6 @@ nav a:hover {
     background: #111111;
     color: #f5f5f5;
 }
-
 /* TITRE DE LA SECTION */
 
 .ensembles-titre {
@@ -1222,7 +1197,6 @@ nav a:hover {
     color: #bdbdbd;
     font-size: 15px;
 }
-
 /* GRILLE DES CARTES */
 
 .ensembles-grille {
@@ -1247,7 +1221,6 @@ nav a:hover {
                 box-shadow 0.4s ease;
     animation: ensembleApparition 0.8s ease both;
 }
-
 /* IMAGES */
  .ensemble-carte img {
     width: 100%;
@@ -1289,6 +1262,7 @@ nav a:hover {
                 color 0.3s ease;
 }
 
+
 /* EFFET AU SURVOL */
 
 .ensemble-carte:hover {
@@ -1314,7 +1288,7 @@ nav a:hover {
         transform: translateY(25px);
     }
 
-    to {
+     to {
         opacity: 1;
         transform: translateY(0);
     }
@@ -1343,7 +1317,6 @@ nav a:hover {
         height: 280px;
     }
 }
-
 /* TÉLÉPHONE */
 
 @media (max-width: 600px) {
@@ -1356,13 +1329,15 @@ nav a:hover {
     }
 
     .ensembles-grille {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 25px;
     }
 
     .ensemble-carte img {
-        height: 350px;
-    }
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+}
 }
 
 /* ACCESSIBILITÉ */
@@ -1377,5 +1352,216 @@ nav a:hover {
     .ensemble-carte img,
     .ensemble-carte a {
         transition: none;
+    }
+}
+/* ==============================
+   ANIMATION TITRE COLLECTIONS
+============================== */
+
+.collections-titre h2 {
+    animation: hommeTitre 0.8s ease both;
+}
+
+.collections-titre p {
+    animation: hommeTitre 0.8s ease both;
+    animation-delay: 0.15s;
+}
+
+/* ==============================
+   STYLE LUXE - CARTES COLLECTIONS
+============================== */
+
+.collection-carte {
+    background: linear-gradient(145deg, #222222, #111111);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+/* EFFET AU SURVOL */
+
+.collection-carte:hover {
+    transform: translateY(-10px);
+    border-color: #d4af37;
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(212, 175, 55, 0.15);
+}
+
+/* TEXTE DES CARTES */
+
+.collection-carte span {
+    color: #bbbbbb;
+}
+
+/* ANIMATION D'APPARITION */
+
+.collection-carte {
+    animation: collectionsCarte 0.8s ease both;
+}
+
+.collection-carte:nth-child(1) {
+    animation-delay: 0.1s;
+}
+.collection-carte:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.collection-carte:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.collection-carte:nth-child(4) {
+    animation-delay: 0.55s;
+}
+
+@keyframes collectionsCarte {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+     to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================
+   COLLECTIONS - RESPONSIVE
+============================== */
+
+/* TABLETTE */
+
+@media (max-width: 900px) {
+    .collections-grille {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+/* TELEPHONE */
+
+@media (max-width: 550px) {
+    .collections {
+        padding: 55px 5%;
+    }
+
+    .collections-titre h2 {
+        font-size: 25px;
+    }
+
+    .collections-titre p {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .collections-grille {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+     .collection-carte img {
+        height: 240px;
+    }
+}
+ 
+/* ==============================
+   GHETTODZ - COLLECTIONS MOBILE
+============================== */
+
+/* TABLETTE */
+
+@media (max-width: 900px) {
+    .collections-grille {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .collection-carte img {
+        height: 230px;
+    }
+}
+
+/* TELEPHONE */
+
+@media (max-width: 550px) {
+    .collections {
+        padding: 45px 4%;
+    }
+
+    .collections-titre {
+        margin-bottom: 30px;
+    }
+     .collections-titre p {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .collections-titre h2 {
+        font-size: 23px;
+        line-height: 1.3;
+    }
+
+    .collections-titre span {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .collections-grille {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .collection-carte {
+        border-radius: 10px;
+        padding-bottom: 15px;
+    }
+
+    .collection-carte img {
+        height: 170px;
+        object-fit: cover;
+    }
+     .collection-carte h3 {
+        font-size: 16px;
+        margin: 14px 5px 12px;
+    }
+
+    .collection-carte a {
+        font-size: 11px;
+        padding: 9px 12px;
+        margin: 0 5px;
+    }
+}
+
+/* PETITS TELEPHONES */
+
+@media (max-width: 380px) {
+    .collections-grille {
+        gap: 10px;
+    }
+
+    .collection-carte img {
+        height: 145px;
+    }
+
+    .collection-carte h3 {
+        font-size: 14px;
+    }
+
+    .collection-carte a {
+        font-size: 10px;
+        padding: 8px 9px;
+    }
+}
+
+/* Bouton Découvrir - version mobile */
+@media (max-width: 550px) {
+    .ensemble-carte a {
+        font-size: 11px;
+        padding: 7px 8px;
+        margin: 8px 4px;
+        border-radius: 20px;
+        white-space: nowrap;
     }
 }
