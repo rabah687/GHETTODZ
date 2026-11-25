@@ -91,21 +91,48 @@
             <!-- GRILLE DES 15 ARTICLES -->
             <div class="ensembles-grille">
 
-                <!-- ARTICLE 01 : ENSEMBLE -->
-                <article class="ensemble-carte">
+<!-- ARTICLE 01 : ENSEMBLE -->
+<article class="ensemble-carte">
 
-                    <img src="IMAGE/ensemble-01-noir.JPG"
-                         alt="Ensemble homme noir">
+    <img src="IMAGE/ensemble-01-noir.JPG"
+     alt="Ensemble homme"
+     id="photo-urban">
 
-                    <h3>Ensemble Urban</h3>
-                    <span class="prix-produit">6500 DA</span>
+    <h3>Ensemble Urban</h3>
 
-                    <p>Disponible en plusieurs couleurs</p>
+    <span class="prix-produit">6500 DA</span>
 
-                    <a href="#">Découvrir</a>
+    <p>Disponible en plusieurs couleurs</p>
 
-                </article>
+    <!-- CHOIX DE LA COULEUR -->
+    <label for="couleur-urban">Couleur :</label>
 
+    <select id="couleur-urban" name="couleur-urban">
+        <option value="noir">Noir</option>
+        <option value="blanc">Blanc</option>
+        <option value="beige">Beige</option>
+    </select>
+
+    <!-- CHOIX DE LA TAILLE -->
+    <label for="taille-urban">Taille :</label>
+
+    <select id="taille-urban" name="taille-urban">
+        <option value="">Choisir une taille</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+    </select>
+
+    <button type="button" id="ajouter-urban">
+    AJOUTER AU PANIER
+</button>
+<p id="message-urban"></p>
+
+
+</article>
+               
                 <!-- ARTICLE 02 : ENSEMBLE -->
                 <article class="ensemble-carte">
 
@@ -318,6 +345,77 @@
 
     <!-- JAVASCRIPT -->
     <script src="js/script.js"></script>
+
+<script>
+    // PHOTO DE L'ENSEMBLE URBAN
+    const couleurUrban = document.getElementById("couleur-urban");
+    const photoUrban = document.getElementById("photo-urban");
+
+    couleurUrban.addEventListener("change", function () {
+
+        if (couleurUrban.value === "noir") {
+            photoUrban.src = "IMAGE/ensemble-01-noir.JPG";
+            photoUrban.alt = "Ensemble Urban noir";
+        }
+
+        else if (couleurUrban.value === "blanc") {
+            photoUrban.src = "IMAGE/ensemble-01-blanc.JPG";
+            photoUrban.alt = "Ensemble Urban blanc";
+        }
+
+        else if (couleurUrban.value === "beige") {
+            photoUrban.src = "IMAGE/ensemble-01-beige.JPG";
+            photoUrban.alt = "Ensemble Urban beige";
+        }
+
+    });
+
+
+    // AJOUTER ENSEMBLE URBAN AU PANIER
+
+    const boutonUrban = document.getElementById("ajouter-urban");
+    const messageUrban = document.getElementById("message-urban");
+
+    boutonUrban.addEventListener("click", function () {
+
+        const couleur = document.getElementById("couleur-urban").value;
+        const taille = document.getElementById("taille-urban").value;
+
+        // Vérifier si une taille est choisie
+        if (taille === "") {
+            messageUrban.textContent = "Veuillez choisir une taille.";
+            messageUrban.style.color = "#d4af37";
+            return;
+        }
+
+        // Récupérer le panier enregistré
+        let panier = JSON.parse(localStorage.getItem("panierGHETTODZ")) || [];
+
+        // Créer le produit
+        const produit = {
+            nom: "Ensemble Urban",
+            prix: 6500,
+            couleur: couleur,
+            taille: taille,
+            image: "IMAGE/ensemble-01-" + couleur + ".JPG"
+        };
+
+        // Ajouter le produit au panier
+        panier.push(produit);
+
+        // Enregistrer le panier dans le navigateur
+        localStorage.setItem("panierGHETTODZ", JSON.stringify(panier));
+
+        // Afficher un message de confirmation
+        messageUrban.textContent =
+            "Ensemble Urban ajouté au panier ! Couleur : " +
+            couleur + " | Taille : " + taille;
+
+        messageUrban.style.color = "#d4af37";
+
+    });
+
+</script>
 
 </body>
 </html>

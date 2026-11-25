@@ -3168,3 +3168,80 @@ footer p:hover {
         margin: 10px 0;
     }
 }
+
+/* OPTIONS DE LA FICHE PRODUIT */
+
+.ensemble-carte label[for="couleur-urban"],
+.ensemble-carte label[for="taille-urban"] {
+    display: block;
+    text-align: left;
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 7px;
+}
+
+/* MENUS COULEUR ET TAILLE */
+
+#couleur-urban,
+#taille-urban {
+    width: 100%;
+    padding: 12px;
+    background-color: #171717;
+    color: #f5f5f5;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+/* EFFET AU SURVOL */
+
+#couleur-urban:hover,
+#taille-urban:hover {
+    border-color: #fff;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.25);
+}
+
+/* EFFET QUAND ON CLIQUE */
+
+#couleur-urban:focus,
+#taille-urban:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* OPTIONS DU MENU */
+
+#couleur-urban option,
+#taille-urban option {
+    background-color: #171717;
+    color: #f5f5f5;
+}
+
+/* BOUTON AJOUTER AU PANIER */
+
+#ajouter-urban {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    background-color: #d4af37;
+    color: #171717;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#ajouter-urban:hover {
+    background-color: transparent;
+    color: #d4af37;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+    transform: translateY(-2px);
+}
