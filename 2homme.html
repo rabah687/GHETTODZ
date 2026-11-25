@@ -36,8 +36,18 @@
                 <button type="button">Rechercher</button>
             </div>
 
-            <div class="panier">
-                🛒 Mon panier
+
+        
+<div class="panier">
+    <a href="./6panier.html">
+        🛒 Mon panier
+        <span id="compteur-panier">0</span>
+    </a>
+</div>
+
+
+
+
             </div>
 
         </div>
@@ -808,12 +818,67 @@ document.getElementById("ajouter-oversize").addEventListener("click", function (
     });
 
     localStorage.setItem("panierGHETTODZ", JSON.stringify(panier));
+    mettreAJourCompteurPanier();
 
     message.textContent = "T-shirt Oversize ajouté au panier !";
     message.style.color = "#d4af37";
 
 });
 
+
+/* COMPTEUR AUTOMATIQUE DU PANIER */
+
+function mettreAJourCompteurPanier() {
+    const compteur = document.getElementById("compteur-panier");
+
+    if (!compteur) {
+        return;
+    }
+
+    let panier = JSON.parse(
+        localStorage.getItem("panierGHETTODZ")
+    ) || [];
+
+    let nombreArticles = panier.reduce((total, article) => {
+        return total + Number(article.quantite || 1);
+    }, 0);
+
+    compteur.textContent = nombreArticles;
+}
+
+// Actualiser le compteur quand la page s'ouvre
+document.addEventListener("DOMContentLoaded", function () {
+    mettreAJourCompteurPanier();
+});
+
+// Actualiser le compteur si le panier change dans un autre onglet
+window.addEventListener("storage", function (event) {
+    if (event.key === "panierGHETTODZ") {
+        mettreAJourCompteurPanier();
+    }
+});
+
+function mettreAJourCompteurPanier() {
+    let panier = JSON.parse(
+        localStorage.getItem("panierGHETTODZ")
+    ) || [];
+
+    let compteur = document.getElementById("compteur-panier");
+
+    if (compteur) {
+        let total = panier.reduce(function (somme, article) {
+            return somme + Number(article.quantite || 1);
+        }, 0);
+
+        compteur.textContent = total;
+    }
+}
+
+// Afficher le nombre de produits dès l'ouverture de la page
+mettreAJourCompteurPanier();
+
+// Actualiser si le panier change dans un autre onglet
+window.addEventListener("storage", mettreAJourCompteurPanier);
     </script> 
 
 </body>

@@ -42,11 +42,15 @@
                 <button type="button">Rechercher</button>
             </div>
 
-             <div class="panier" id="ouvrir-panier">
-    <span class="panier-icone">🛒</span>
-    <span class="panier-texte">MON PANIER</span>
-    <span class="panier-compteur" id="compteur-panier">0</span>
+        
+<div class="panier">
+    <a href="./6panier.html">
+        🛒 Mon panier
+        <span id="compteur-panier">0</span>
+    </a>
 </div>
+
+        
 
         </div>
 
@@ -240,6 +244,26 @@
 
     <!-- Fichier JavaScript -->
     <script src="js/script.js"></script>
+
+<script>
+function actualiserCompteurPanier() {
+    let panier = JSON.parse(localStorage.getItem("panierGHETTODZ")) || [];
+
+    let total = panier.reduce(function(somme, article) {
+        return somme + (Number(article.quantite) || 1);
+    }, 0);
+
+    let compteur = document.getElementById("compteur-panier");
+
+    if (compteur) {
+        compteur.textContent = total;
+    }
+}
+
+actualiserCompteurPanier();
+
+window.addEventListener("storage", actualiserCompteurPanier);
+</script>
 
 </body>
 
