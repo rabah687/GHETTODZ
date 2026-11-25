@@ -1,4 +1,5 @@
  
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -23,9 +24,9 @@
                 <p>YOUR STYLE, YOUR IDENTITY</p>
             </div>
 
-            <div class="panier">
+            <a href="6panier.html" class="panier">
                 🛒 Mon panier
-            </div>
+            </a>
 
         </div>
 
@@ -39,6 +40,7 @@
 
     </header>
 
+
     <!-- CONTENU PRINCIPAL -->
     <main>
 
@@ -47,17 +49,207 @@
             <h2>MON PANIER</h2>
 
             <div id="contenu-panier">
-                <!-- Les produits du panier apparaîtront ici -->
+                <p>Chargement du panier...</p>
             </div>
 
         </section>
 
     </main>
 
+
     <!-- FOOTER -->
     <footer>
         <p>© 2026 GHETTODZ - Tous droits réservés</p>
     </footer>
+
+
+    <!-- JAVASCRIPT DU PANIER -->
+    <script>
+
+        // RÉCUPÉRER LES PRODUITS
+        const contenuPanier = document.getElementById("contenu-panier");
+
+        let panier = JSON.parse(localStorage.getItem("panierGHETTODZ")) || [];
+
+
+        // SAUVEGARDER LE PANIER
+        function sauvegarderEtAfficher() {
+
+            localStorage.setItem(
+                "panierGHETTODZ",
+                JSON.stringify(panier)
+            );
+
+            afficherPanier();
+        }
+
+
+        // AFFICHER LE PANIER
+        function afficherPanier() {
+
+            contenuPanier.innerHTML = "";
+
+            let total = 0;
+
+
+            // VÉRIFIER SI LE PANIER EST VIDE
+            if (panier.length === 0) {
+
+                contenuPanier.textContent = "Votre panier est vide.";
+
+                return;
+            }
+
+
+            // AFFICHER CHAQUE PRODUIT
+            panier.forEach(function(produit, index) {
+
+                // QUANTITÉ PAR DÉFAUT
+                if (!produit.quantite || produit.quantite < 1) {
+                    produit.quantite = 1;
+                }
+
+                const article = document.createElement("div");
+                article.className = "article-panier";
+
+
+                // PHOTO
+                const image = document.createElement("img");
+
+                image.src = produit.image;
+                image.alt = produit.nom;
+
+
+                // DÉTAILS
+                const details = document.createElement("div");
+
+                const nom = document.createElement("h3");
+                nom.textContent = produit.nom;
+
+                const couleur = document.createElement("p");
+                couleur.textContent = "Couleur : " + produit.couleur;
+
+                const taille = document.createElement("p");
+                taille.textContent = "Taille : " + produit.taille;
+
+                const prix = document.createElement("p");
+                prix.textContent = "Prix unitaire : " + produit.prix + " DA";
+
+
+                // GESTION DES QUANTITÉS
+                const quantiteZone = document.createElement("div");
+
+                quantiteZone.className = "quantite-zone";
+
+
+                // BOUTON MOINS
+                const boutonMoins = document.createElement("button");
+
+                boutonMoins.textContent = "−";
+
+                boutonMoins.addEventListener("click", function() {
+
+                    if (produit.quantite > 1) {
+
+                        produit.quantite--;
+
+                        sauvegarderEtAfficher();
+
+                    }
+
+                });
+
+
+                // QUANTITÉ
+                const quantite = document.createElement("span");
+
+                quantite.textContent = produit.quantite;
+
+
+                // BOUTON PLUS
+                const boutonPlus = document.createElement("button");
+
+                boutonPlus.textContent = "+";
+
+                boutonPlus.addEventListener("click", function() {
+
+                    produit.quantite++;
+
+                    sauvegarderEtAfficher();
+
+                });
+
+
+                quantiteZone.append(
+                    boutonMoins,
+                    quantite,
+                    boutonPlus
+                );
+
+
+                // SOUS-TOTAL
+                const sousTotal = document.createElement("p");
+
+                sousTotal.textContent =
+                    "Sous-total : " +
+                    (produit.prix * produit.quantite) +
+                    " DA";
+
+
+                total += produit.prix * produit.quantite;
+
+
+                // BOUTON SUPPRIMER
+                const boutonSupprimer = document.createElement("button");
+
+                boutonSupprimer.textContent = "SUPPRIMER";
+
+                boutonSupprimer.className = "supprimer-produit";
+
+                boutonSupprimer.addEventListener("click", function() {
+
+                    panier.splice(index, 1);
+
+                    sauvegarderEtAfficher();
+
+                });
+
+
+                // ASSEMBLER LA CARTE
+                details.append(
+                    nom,
+                    couleur,
+                    taille,
+                    prix,
+                    quantiteZone,
+                    sousTotal
+                );
+
+                article.append(
+                    image,
+                    details,
+                    boutonSupprimer
+                );
+
+                contenuPanier.appendChild(article);
+
+            });
+
+
+            // TOTAL GÉNÉRAL
+            const totalElement = document.createElement("h3");
+
+            totalElement.textContent = "TOTAL : " + total + " DA";
+
+            contenuPanier.appendChild(totalElement);
+
+        }
+
+
+        // PREMIER AFFICHAGE
+        afficherPanier();
+
+    </script>
 
 </body>
 </html>

@@ -1,13 +1,11 @@
-
+  
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>GHETTODZ | Homme</title>
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -16,7 +14,6 @@
     <!-- HEADER -->
     <header>
 
-        <!-- PUBLICITE DYNAMIQUE -->
         <div class="annonce">
             <div class="annonce-texte">
                 <span>🔥 Bienvenue chez GHETTODZ</span>
@@ -27,7 +24,6 @@
             </div>
         </div>
 
-        <!-- BARRE PRINCIPALE -->
         <div class="header-principal">
 
             <div class="logo">
@@ -46,7 +42,6 @@
 
         </div>
 
-        <!-- MENU DE NAVIGATION -->
         <nav>
             <a href="1index.html">Accueil</a>
             <a href="2homme.html">Homme</a>
@@ -56,6 +51,7 @@
         </nav>
 
     </header>
+
 
     <!-- CONTENU PRINCIPAL -->
     <main>
@@ -72,51 +68,156 @@
 
         </section>
 
+
         <!-- SECTION NOS ARTICLES -->
         <section class="ensembles">
 
-            <!-- TITRE DE LA SECTION -->
             <div class="ensembles-titre">
-
                 <p>COLLECTION HOMME</p>
-
                 <h2>NOS ARTICLES</h2>
-
-                <span>
-                    Découvrez nos collections streetwear
-                </span>
-
+                <span>Découvrez nos collections streetwear</span>
             </div>
+
 
             <!-- GRILLE DES 15 ARTICLES -->
             <div class="ensembles-grille">
 
-<!-- ARTICLE 01 : ENSEMBLE -->
+
+                <!-- ARTICLE 01 : ENSEMBLE URBAN -->
+                <article class="ensemble-carte">
+
+                    <img src="IMAGE/ensemble-01-noir.JPG"
+                         alt="Ensemble Urban"
+                         id="photo-urban">
+
+                    <h3>Ensemble Urban</h3>
+                    <span class="prix-produit">6500 DA</span>
+                    <p>Disponible en plusieurs couleurs</p>
+
+                    <label for="couleur-urban">Couleur :</label>
+                    <select id="couleur-urban">
+                        <option value="noir">Noir</option>
+                        <option value="blanc">Blanc</option>
+                        <option value="beige">Beige</option>
+                    </select>
+
+                    <label for="taille-urban">Taille :</label>
+                    <select id="taille-urban">
+                        <option value="">Choisir une taille</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+
+                    <button type="button" id="ajouter-urban">
+                        AJOUTER AU PANIER
+                    </button>
+
+                    <p id="message-urban"></p>
+
+                </article>
+
+
+                <!-- ARTICLE 02 : ENSEMBLE STREET -->
+                <article class="ensemble-carte">
+
+                    <img src="IMAGE/ensemble-02.JPG"
+                         alt="Ensemble Street"
+                         id="photo-street">
+
+                    <h3>Ensemble Street</h3>
+                    <span class="prix-produit">4900 DA</span>
+                    <p>Disponible en plusieurs couleurs</p>
+
+                    <label for="couleur-street">Couleur :</label>
+                    <select id="couleur-street">
+                        <option value="original">Couleur originale</option>
+                        <option value="noir">Noir</option>
+                        <option value="blanc">Blanc</option>
+                    </select>
+
+                    <label for="taille-street">Taille :</label>
+                    <select id="taille-street">
+                        <option value="">Choisir une taille</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+
+                    <button type="button" id="ajouter-street">
+                        AJOUTER AU PANIER
+                    </button>
+
+                    <p id="message-street"></p>
+
+                </article>
+
+
+                <!-- ARTICLE 03 : ENSEMBLE CLASSIC -->
+                <article class="ensemble-carte">
+
+                    <img src="IMAGE/ensemble-03.JPG"
+                         alt="Ensemble Classic"
+                         id="photo-classic">
+
+                    <h3>Ensemble Classic</h3>
+                    <span class="prix-produit">7500 DA</span>
+                    <p>Disponible en plusieurs couleurs</p>
+
+                    <label for="couleur-classic">Couleur :</label>
+                    <select id="couleur-classic">
+                        <option value="original">Originale</option>
+                        <option value="marron">Marron</option>
+                        <option value="blanc">Blanc</option>
+                    </select>
+
+                    <label for="taille-classic">Taille :</label>
+                    <select id="taille-classic">
+                        <option value="">Choisir une taille</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+
+                    <button type="button" id="ajouter-classic">
+                        AJOUTER AU PANIER
+                    </button>
+
+                    <p id="message-classic"></p>
+
+                </article>
+
+
+<!-- ARTICLE 04 : ENSEMBLE PREMIUM -->
 <article class="ensemble-carte">
 
-    <img src="IMAGE/ensemble-01-noir.JPG"
-     alt="Ensemble homme"
-     id="photo-urban">
+    <img src="IMAGE/ensemble-04.JPG"
+         alt="Ensemble Premium"
+         id="photo-premium">
 
-    <h3>Ensemble Urban</h3>
+    <h3>Ensemble Premium</h3>
 
-    <span class="prix-produit">6500 DA</span>
+    <span class="prix-produit">5500 DA</span>
 
     <p>Disponible en plusieurs couleurs</p>
 
-    <!-- CHOIX DE LA COULEUR -->
-    <label for="couleur-urban">Couleur :</label>
+    <label for="couleur-premium">Couleur :</label>
 
-    <select id="couleur-urban" name="couleur-urban">
-        <option value="noir">Noir</option>
-        <option value="blanc">Blanc</option>
-        <option value="beige">Beige</option>
+    <select id="couleur-premium">
+        <option value="original">Couleur originale</option>
+        <option value="pistache">Vert pistache</option>
+        <option value="chocolat">Marron chocolat</option>
     </select>
 
-    <!-- CHOIX DE LA TAILLE -->
-    <label for="taille-urban">Taille :</label>
+    <label for="taille-premium">Taille :</label>
 
-    <select id="taille-urban" name="taille-urban">
+    <select id="taille-premium">
         <option value="">Choisir une taille</option>
         <option value="S">S</option>
         <option value="M">M</option>
@@ -125,85 +226,94 @@
         <option value="XXL">XXL</option>
     </select>
 
-    <button type="button" id="ajouter-urban">
-    AJOUTER AU PANIER
-</button>
-<p id="message-urban"></p>
+    <button type="button" id="ajouter-premium">
+        AJOUTER AU PANIER
+    </button>
 
+    <p id="message-premium"></p>
 
 </article>
+
+                
+                </article>
+
+
+                
+<!-- ARTICLE 05 : ENSEMBLE SPORT -->
+<article class="ensemble-carte">
+
+    <img src="IMAGE/ensemble-05.JPG"
+         alt="Ensemble Sport"
+         id="photo-sport">
+
+    <h3>Ensemble Sport</h3>
+
+    <span class="prix-produit">3900 DA</span>
+
+    <p>Disponible en plusieurs couleurs</p>
+
+    <label for="couleur-sport">Couleur :</label>
+
+    <select id="couleur-sport">
+        <option value="original">Couleur originale</option>
+        <option value="bleu-roi">Bleu roi</option>
+        <option value="blanc">Blanc</option>
+    </select>
+
+    <label for="taille-sport">Taille :</label>
+
+    <select id="taille-sport">
+        <option value="">Choisir une taille</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+    </select>
+
+    <button type="button" id="ajouter-sport">
+        AJOUTER AU PANIER
+    </button>
+
+    <p id="message-sport"></p>
+
+</article>
+
+
+<!-- ARTICLE 06 : T-SHIRT OVERSIZE -->
+<article class="ensemble-carte">
+
+    <img src="IMAGE/tshirt-01.jpg"
+         alt="T-shirt Oversize">
+
+    <h3>T-shirt Oversize</h3>
+
+    <span class="prix-produit">3000 DA</span>
+
+    <p>Style streetwear</p>
+
+    <label for="taille-oversize">Taille :</label>
+
+    <select id="taille-oversize">
+        <option value="">Choisir une taille</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+    </select>
+
+    <button type="button" id="ajouter-oversize">
+        AJOUTER AU PANIER
+    </button>
+
+    <p id="message-oversize"></p>
+
+</article>
+
                
-                <!-- ARTICLE 02 : ENSEMBLE -->
-                <article class="ensemble-carte">
 
-                    <img src="IMAGE/ensemble-02.JPG"
-                         alt="Ensemble homme modèle 2">
-
-                    <h3>Ensemble Street</h3>
-                    <span class="prix-produit">4900 DA</span>
-                    <p>Disponible en plusieurs couleurs</p>
-
-                    <a href="#">Découvrir</a>
-
-                </article>
-
-                <!-- ARTICLE 03 : ENSEMBLE -->
-                <article class="ensemble-carte">
-
-                    <img src="IMAGE/ensemble-03.JPG"
-                         alt="Ensemble homme modèle 3">
-
-                    <h3>Ensemble Classic</h3>
-                <span class="prix-produit">7500 DA</span>
-                    <p>Disponible en plusieurs couleurs</p>
-
-                    <a href="#">Découvrir</a>
-
-                </article>
-
-                <!-- ARTICLE 04 : ENSEMBLE -->
-                <article class="ensemble-carte">
-
-                    <img src="IMAGE/ensemble-04.JPG"
-                         alt="Ensemble homme modèle 4">
-
-                    <h3>Ensemble Premium</h3>
-                    <span class="prix-produit">5500 DA</span>
-                    <p>Disponible en plusieurs couleurs</p>
-
-                    <a href="#">Découvrir</a>
-
-                </article>
-
-                <!-- ARTICLE 05 : ENSEMBLE -->
-                <article class="ensemble-carte">
-
-                    <img src="IMAGE/ensemble-05.JPG"
-                         alt="Ensemble homme modèle 5">
-
-                    <h3>Ensemble Sport</h3>
-                    <span class="prix-produit">3900 DA</span>
-                    <p>Disponible en plusieurs couleurs</p>
-
-                    <a href="#">Découvrir</a>
-
-                </article>
-
-                <!-- ARTICLE 06 : T-SHIRT -->
-                <article class="ensemble-carte">
-
-                    <img src="IMAGE/tshirt-01.jpg"
-                         alt="T-shirt homme modèle 1">
-
-                    <h3>T-shirt Oversize</h3>
-                    <span class="prix-produit">3000 DA</span>
-                    <p>Style streetwear</p>
-
-                    <a href="#">Découvrir</a>
-
-                </article>
-
-                <!-- ARTICLE 07 : T-SHIRT -->
+                <!-- ARTICLE 07 : T-SHIRT BASIC -->
                 <article class="ensemble-carte">
 
                     <img src="IMAGE/tshirt-02.jpg"
@@ -217,7 +327,8 @@
 
                 </article>
 
-                <!-- ARTICLE 08 : T-SHIRT -->
+
+                <!-- ARTICLE 08 : T-SHIRT PREMIUM -->
                 <article class="ensemble-carte">
 
                     <img src="IMAGE/tshirt-03.jpg"
@@ -231,7 +342,8 @@
 
                 </article>
 
-                <!-- ARTICLE 09 : CARGO -->
+
+                <!-- ARTICLE 09 : CARGO URBAN -->
                 <article class="ensemble-carte">
 
                     <img src="IMAGE/cargo-01.jpg"
@@ -245,7 +357,8 @@
 
                 </article>
 
-                <!-- ARTICLE 10 : CARGO -->
+
+                <!-- ARTICLE 10 : CARGO CLASSIC -->
                 <article class="ensemble-carte">
 
                     <img src="IMAGE/cargo-02.jpg"
@@ -259,7 +372,8 @@
 
                 </article>
 
-                <!-- ARTICLE 11 : CARGO -->
+
+                <!-- ARTICLE 11 : CARGO PREMIUM -->
                 <article class="ensemble-carte">
 
                     <img src="IMAGE/cargo-03.jpg"
@@ -273,7 +387,8 @@
 
                 </article>
 
-                <!-- ARTICLE 12 : HOODIE -->
+
+                <!-- ARTICLE 12 : HOODIE OVERSIZE -->
                 <article class="ensemble-carte">
 
                     <img src="IMAGE/hoodie-01.jpg"
@@ -287,21 +402,23 @@
 
                 </article>
 
-                <!-- ARTICLE 13 : HOODIE -->
+
+                <!-- ARTICLE 13 : HOODIE PREMIUM -->
                 <article class="ensemble-carte">
 
                     <img src="IMAGE/hoodie-02.jpg"
                          alt="Hoodie homme modèle 2">
 
                     <h3>Hoodie Premium</h3>
-                    <span class="prix-produit">3500 DA</span> 
+                    <span class="prix-produit">3500 DA</span>
                     <p>Disponible en plusieurs couleurs</p>
 
                     <a href="#">Découvrir</a>
 
                 </article>
 
-                <!-- ARTICLE 14 : SNEAKERS -->
+
+                <!-- ARTICLE 14 : SNEAKERS URBAN -->
                 <article class="ensemble-carte">
 
                     <img src="IMAGE/sneakers-01.jpg"
@@ -315,7 +432,8 @@
 
                 </article>
 
-                <!-- ARTICLE 15 : SNEAKERS -->
+
+                <!-- ARTICLE 15 : SNEAKERS PREMIUM -->
                 <article class="ensemble-carte">
 
                     <img src="IMAGE/sneakers-02.jpg"
@@ -329,94 +447,376 @@
 
                 </article>
 
+
             </div>
 
-        </section> 
+        </section>
 
     </main>
 
+
     <!-- FOOTER -->
     <footer>
-
-        <p>
-            © 2026 GHETTODZ - Tous droits réservés</p>
-
+        <p>© 2026 GHETTODZ - Tous droits réservés</p>
     </footer>
+
 
     <!-- JAVASCRIPT -->
     <script src="js/script.js"></script>
 
-<script>
-    // PHOTO DE L'ENSEMBLE URBAN
-    const couleurUrban = document.getElementById("couleur-urban");
-    const photoUrban = document.getElementById("photo-urban");
+    <script>
 
-    couleurUrban.addEventListener("change", function () {
+        // =====================================
+        // ARTICLE 01 : ENSEMBLE URBAN
+        // =====================================
 
-        if (couleurUrban.value === "noir") {
-            photoUrban.src = "IMAGE/ensemble-01-noir.JPG";
-            photoUrban.alt = "Ensemble Urban noir";
-        }
+        const couleurUrban = document.getElementById("couleur-urban");
+        const photoUrban = document.getElementById("photo-urban");
 
-        else if (couleurUrban.value === "blanc") {
-            photoUrban.src = "IMAGE/ensemble-01-blanc.JPG";
-            photoUrban.alt = "Ensemble Urban blanc";
-        }
+        couleurUrban.addEventListener("change", function () {
 
-        else if (couleurUrban.value === "beige") {
-            photoUrban.src = "IMAGE/ensemble-01-beige.JPG";
-            photoUrban.alt = "Ensemble Urban beige";
-        }
+            if (couleurUrban.value === "noir") {
+                photoUrban.src = "IMAGE/ensemble-01-noir.JPG";
+            }
+            else if (couleurUrban.value === "blanc") {
+                photoUrban.src = "IMAGE/ensemble-01-blanc.JPG";
+            }
+            else if (couleurUrban.value === "beige") {
+                photoUrban.src = "IMAGE/ensemble-01-beige.JPG";
+            }
 
+        });
+
+
+        document.getElementById("ajouter-urban").addEventListener("click", function () {
+
+            const couleur = couleurUrban.value;
+            const taille = document.getElementById("taille-urban").value;
+            const message = document.getElementById("message-urban");
+
+            if (taille === "") {
+                message.textContent = "Veuillez choisir une taille.";
+                message.style.color = "#d4af37";
+                return;
+            }
+
+            let panier = JSON.parse(localStorage.getItem("panierGHETTODZ")) || [];
+
+            let image = "IMAGE/ensemble-01-" + couleur + ".JPG";
+
+            panier.push({
+                nom: "Ensemble Urban",
+                prix: 6500,
+                couleur: couleur,
+                taille: taille,
+                image: image
+            });
+
+            localStorage.setItem("panierGHETTODZ", JSON.stringify(panier));
+
+            message.textContent =
+                "Ensemble Urban ajouté au panier !";
+
+            message.style.color = "#d4af37";
+
+        });
+
+
+
+        // =====================================
+        // ARTICLE 02 : ENSEMBLE STREET
+        // =====================================
+
+        const couleurStreet = document.getElementById("couleur-street");
+        const photoStreet = document.getElementById("photo-street");
+
+        couleurStreet.addEventListener("change", function () {
+
+            if (couleurStreet.value === "original") {
+                photoStreet.src = "IMAGE/ensemble-02.JPG";
+            }
+            else if (couleurStreet.value === "noir") {
+                photoStreet.src = "IMAGE/ensemble-02 noir.JPG";
+            }
+            else if (couleurStreet.value === "blanc") {
+                photoStreet.src = "IMAGE/ensemble-02 blanc.JPG";
+            }
+
+        });
+
+
+        document.getElementById("ajouter-street").addEventListener("click", function () {
+
+            const couleur = couleurStreet.value;
+            const taille = document.getElementById("taille-street").value;
+            const message = document.getElementById("message-street");
+
+            if (taille === "") {
+                message.textContent = "Veuillez choisir une taille.";
+                message.style.color = "#d4af37";
+                return;
+            }
+
+            let panier = JSON.parse(localStorage.getItem("panierGHETTODZ")) || [];
+
+            let image;
+
+            if (couleur === "original") {
+                image = "IMAGE/ensemble-02.JPG";
+            }
+            else if (couleur === "noir") {
+                image = "IMAGE/ensemble-02 noir.JPG";
+            }
+            else {
+                image = "IMAGE/ensemble-02 blanc.JPG";
+            }
+
+            panier.push({
+                nom: "Ensemble Street",
+                prix: 4900,
+                couleur: couleur,
+                taille: taille,
+                image: image
+            });
+
+            localStorage.setItem("panierGHETTODZ", JSON.stringify(panier));
+
+            message.textContent = "Ensemble Street ajouté au panier !";
+            message.style.color = "#d4af37";
+
+        });
+
+
+
+        // =====================================
+        // ARTICLE 03 : ENSEMBLE CLASSIC
+        // =====================================
+
+        const couleurClassic = document.getElementById("couleur-classic");
+        const photoClassic = document.getElementById("photo-classic");
+
+        couleurClassic.addEventListener("change", function () {
+
+            if (couleurClassic.value === "original") {
+                photoClassic.src = "IMAGE/ensemble-03.JPG";
+            }
+            else if (couleurClassic.value === "marron") {
+                photoClassic.src = "IMAGE/ensemble-03-marron.JPG";
+            }
+            else if (couleurClassic.value === "blanc") {
+                photoClassic.src = "IMAGE/ensemble-03-blanc.JPG";
+            }
+
+        });
+
+
+        document.getElementById("ajouter-classic").addEventListener("click", function () {
+
+            const couleur = couleurClassic.value;
+            const taille = document.getElementById("taille-classic").value;
+            const message = document.getElementById("message-classic");
+
+            if (taille === "") {
+                message.textContent = "Veuillez choisir une taille.";
+                message.style.color = "#d4af37";
+                return;
+            }
+
+            let panier = JSON.parse(localStorage.getItem("panierGHETTODZ")) || [];
+
+            let image;
+
+            if (couleur === "original") {
+                image = "IMAGE/ensemble-03.JPG";
+            }
+            else if (couleur === "marron") {
+                image = "IMAGE/ensemble-03-marron.JPG";
+            }
+            else {
+                image = "IMAGE/ensemble-03-blanc.JPG";
+            }
+
+            panier.push({
+                nom: "Ensemble Classic",
+                prix: 7500,
+                couleur: couleur,
+                taille: taille,
+                image: image
+            });
+
+            localStorage.setItem("panierGHETTODZ", JSON.stringify(panier));
+
+            message.textContent = "Ensemble Classic ajouté au panier !";
+            message.style.color = "#d4af37";
+
+        });
+        
+// =====================================
+// ARTICLE 04 : ENSEMBLE PREMIUM
+// =====================================
+
+const couleurPremium = document.getElementById("couleur-premium");
+const photoPremium = document.getElementById("photo-premium");
+
+couleurPremium.addEventListener("change", function () {
+
+    if (couleurPremium.value === "original") {
+        photoPremium.src = "IMAGE/ensemble-04.JPG";
+    }
+    else if (couleurPremium.value === "pistache") {
+        photoPremium.src = "IMAGE/ensemble-04-pistache.JPG";
+    }
+    else if (couleurPremium.value === "chocolat") {
+        photoPremium.src = "IMAGE/ensemble-04-chocolat.JPG";
+    }
+
+});
+
+
+// AJOUTER ENSEMBLE PREMIUM AU PANIER
+
+document.getElementById("ajouter-premium").addEventListener("click", function () {
+
+    const couleur = couleurPremium.value;
+    const taille = document.getElementById("taille-premium").value;
+    const message = document.getElementById("message-premium");
+
+    if (taille === "") {
+        message.textContent = "Veuillez choisir une taille.";
+        message.style.color = "#d4af37";
+        return;
+    }
+
+    let panier = JSON.parse(localStorage.getItem("panierGHETTODZ")) || [];
+
+    let image;
+
+    if (couleur === "original") {
+        image = "IMAGE/ensemble-04.JPG";
+    }
+    else if (couleur === "pistache") {
+        image = "IMAGE/ensemble-04-pistache.JPG";
+    }
+    else {
+        image = "IMAGE/ensemble-04-chocolat.JPG";
+    }
+
+    panier.push({
+        nom: "Ensemble Premium",
+        prix: 5500,
+        couleur: couleur,
+        taille: taille,
+        image: image
     });
 
+    localStorage.setItem("panierGHETTODZ", JSON.stringify(panier));
 
-    // AJOUTER ENSEMBLE URBAN AU PANIER
+    message.textContent = "Ensemble Premium ajouté au panier !";
+    message.style.color = "#d4af37";
 
-    const boutonUrban = document.getElementById("ajouter-urban");
-    const messageUrban = document.getElementById("message-urban");
+});
+  
+// =====================================
+// ARTICLE 05 : ENSEMBLE SPORT
+// =====================================
 
-    boutonUrban.addEventListener("click", function () {
+const couleurSport = document.getElementById("couleur-sport");
+const photoSport = document.getElementById("photo-sport");
 
-        const couleur = document.getElementById("couleur-urban").value;
-        const taille = document.getElementById("taille-urban").value;
+couleurSport.addEventListener("change", function () {
 
-        // Vérifier si une taille est choisie
-        if (taille === "") {
-            messageUrban.textContent = "Veuillez choisir une taille.";
-            messageUrban.style.color = "#d4af37";
-            return;
-        }
+    if (couleurSport.value === "original") {
+        photoSport.src = "IMAGE/ensemble-05.JPG";
+    }
+    else if (couleurSport.value === "bleu-roi") {
+        photoSport.src = "IMAGE/ensemble-05-bleu-roi.JPG";
+    }
+    else if (couleurSport.value === "blanc") {
+        photoSport.src = "IMAGE/ensemble-05-blanc.JPG";
+    }
 
-        // Récupérer le panier enregistré
-        let panier = JSON.parse(localStorage.getItem("panierGHETTODZ")) || [];
+});
 
-        // Créer le produit
-        const produit = {
-            nom: "Ensemble Urban",
-            prix: 6500,
-            couleur: couleur,
-            taille: taille,
-            image: "IMAGE/ensemble-01-" + couleur + ".JPG"
-        };
 
-        // Ajouter le produit au panier
-        panier.push(produit);
+// AJOUTER ENSEMBLE SPORT AU PANIER
 
-        // Enregistrer le panier dans le navigateur
-        localStorage.setItem("panierGHETTODZ", JSON.stringify(panier));
+document.getElementById("ajouter-sport").addEventListener("click", function () {
 
-        // Afficher un message de confirmation
-        messageUrban.textContent =
-            "Ensemble Urban ajouté au panier ! Couleur : " +
-            couleur + " | Taille : " + taille;
+    const couleur = couleurSport.value;
+    const taille = document.getElementById("taille-sport").value;
+    const message = document.getElementById("message-sport");
 
-        messageUrban.style.color = "#d4af37";
+    if (taille === "") {
+        message.textContent = "Veuillez choisir une taille.";
+        message.style.color = "#d4af37";
+        return;
+    }
 
+    let panier = JSON.parse(localStorage.getItem("panierGHETTODZ")) || [];
+
+    let image;
+
+    if (couleur === "original") {
+        image = "IMAGE/ensemble-05.JPG";
+    }
+    else if (couleur === "bleu-roi") {
+        image = "IMAGE/ensemble-05-bleu-roi.JPG";
+    }
+    else {
+        image = "IMAGE/ensemble-05-blanc.JPG";
+    }
+
+    panier.push({
+        nom: "Ensemble Sport",
+        prix: 3900,
+        couleur: couleur,
+        taille: taille,
+        image: image
     });
 
-</script>
+    localStorage.setItem("panierGHETTODZ", JSON.stringify(panier));
+
+    message.textContent = "Ensemble Sport ajouté au panier !";
+    message.style.color = "#d4af37";
+
+});
+
+
+// =====================================
+// ARTICLE 06 : T-SHIRT OVERSIZE
+// =====================================
+
+document.getElementById("ajouter-oversize").addEventListener("click", function () {
+
+    const taille = document.getElementById("taille-oversize").value;
+    const message = document.getElementById("message-oversize");
+
+    if (taille === "") {
+        message.textContent = "Veuillez choisir une taille.";
+        message.style.color = "#d4af37";
+        return;
+    }
+
+    let panier = JSON.parse(localStorage.getItem("panierGHETTODZ")) || [];
+
+    panier.push({
+        nom: "T-shirt Oversize",
+        prix: 3000,
+        couleur: "Non applicable",
+        taille: taille,
+        image: "IMAGE/tshirt-01.jpg"
+    });
+
+    localStorage.setItem("panierGHETTODZ", JSON.stringify(panier));
+
+    message.textContent = "T-shirt Oversize ajouté au panier !";
+    message.style.color = "#d4af37";
+
+});
+
+    </script> 
 
 </body>
 </html>
+
 
