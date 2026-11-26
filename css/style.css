@@ -2,7 +2,7 @@
    GHETTODZ — CSS nettoyé et harmonisé
    Base récupérée : styles existants conservés et doublons regroupés
 ========================================================= */
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 /* 1. BASE GÉNÉRALE */
 * {
     margin: 0;
@@ -3528,4 +3528,240 @@ body {
     font-weight: bold;
 
     border-radius: 50%;
+}
+
+
+/* =========================================
+   GHETTODZ — CADRES PRODUITS VERSION LUXE
+========================================= */
+
+/* CADRE PRINCIPAL */
+.ensemble-carte {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(145deg, #202020, #101010);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+/* REFLET DORÉ AU SURVOL */
+.ensemble-carte::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(212, 175, 55, 0.08),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+    pointer-events: none;
+}
+
+.ensemble-carte:hover::before {
+    left: 150%;
+}
+
+/* SURVOL DU CADRE */
+.ensemble-carte:hover {
+    transform: translateY(-8px);
+    border-color: #d4af37;
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.5),
+        0 0 18px rgba(212, 175, 55, 0.2);
+}
+
+/* IMAGE DU PRODUIT */
+.ensemble-carte img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    object-position: center;
+    background: #171717;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.ensemble-carte:hover img {
+    transform: scale(1.04);
+}
+
+/* NOM DU PRODUIT */
+.ensemble-carte h3 {
+    color: #e5c45b;
+    font-size: 21px;
+    font-weight: 800;
+    margin: 18px 0 10px;
+    transition: 0.3s ease;
+}
+
+.ensemble-carte:hover h3 {
+    color: #fff;
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+/* DESCRIPTION */
+.ensemble-carte p {
+    color: #bdbdbd;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+/* PRIX */
+.ensemble-carte .prix-produit {
+    color: #f5d76e;
+    font-size: 23px;
+    font-weight: 800;
+    margin: 12px 0 18px;
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+}
+
+/* LABELS COULEUR ET TAILLE */
+.ensemble-carte label {
+    display: block;
+    text-align: left;
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 12px 0 6px;
+}
+
+/* MENUS DÉROULANTS */
+.ensemble-carte select {
+    width: 100%;
+    padding: 11px;
+    background: #111;
+    color: #fff;
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.ensemble-carte select:hover,
+.ensemble-carte select:focus {
+    border-color: #f5d76e;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+/* OPTIONS DES MENUS */
+.ensemble-carte select option {
+    background: #171717;
+    color: #fff;
+}
+
+/* BOUTON AJOUTER AU PANIER */
+.ensemble-carte button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 13px 10px;
+    background: linear-gradient(135deg, #f5d76e, #b8962e);
+    color: #111;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.ensemble-carte button:hover {
+    background: transparent;
+    color: #f5d76e;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 18px rgba(212, 175, 55, 0.2);
+}
+
+/* ANIMATION D'APPARITION */
+@keyframes carteLuxe {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ensemble-carte {
+    animation: carteLuxe 0.7s ease both;
+}
+
+/* TABLETTE */
+@media (max-width: 900px) {
+    .ensemble-carte {
+        padding: 12px;
+    }
+
+    .ensemble-carte img {
+        height: 230px;
+    }
+}
+
+/* TÉLÉPHONE */
+@media (max-width: 600px) {
+    .ensemble-carte {
+        padding: 7px;
+        border-radius: 10px;
+    }
+
+    .ensemble-carte img {
+        height: 145px;
+        border-radius: 7px;
+    }
+
+    .ensemble-carte h3 {
+        font-size: 11px;
+        margin: 12px 0 7px;
+    }
+
+    .ensemble-carte p {
+        font-size: 10px;
+        margin-bottom: 8px;
+    }
+
+    .ensemble-carte .prix-produit {
+        font-size: 12px;
+        margin: 8px 0;
+    }
+
+    .ensemble-carte label {
+        font-size: 10px;
+        margin: 8px 0 4px;
+    }
+
+    .ensemble-carte select {
+        padding: 7px 3px;
+        font-size: 10px;
+    }
+
+    .ensemble-carte button {
+        padding: 9px 3px;
+        margin-top: 10px;
+        font-size: 9px;
+        letter-spacing: 0;
+    }
+}
+/* POLICE UNIFIÉE POUR TOUS LES CADRES PRODUITS */
+.ensemble-carte,
+.ensemble-carte * {
+    font-family: 'Poppins', sans-serif;
 }
