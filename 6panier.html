@@ -1,18 +1,28 @@
  
 
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>GHETTODZ | Mon panier</title>
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
+    <!-- PANNEAU PUBLICITAIRE GHETTODZ -->
+    <div class="annonce">
+        <div class="annonce-texte">
+            <span>🔥 Bienvenue chez GHETTODZ</span>
+            <span>🚚 Livraison disponible dans les 69 wilayas</span>
+            <span>🛍️ Découvrez nos nouvelles collections</span>
+            <span>✨ YOUR STYLE, YOUR IDENTITY</span>
+            <span>0553 75 22 41</span>
+        </div>
+    </div>
 
     <!-- HEADER -->
     <header>
@@ -23,14 +33,10 @@
                 <h1>GHETTODZ</h1>
                 <p>YOUR STYLE, YOUR IDENTITY</p>
             </div>
-        
-         
-         <div  class="panier">
-        <a href="./6panier.html">
-        🛒 Mon panier
-        </a>
-     </div>
 
+            <div class="panier">
+                <a href="./6panier.html">🛒 Mon panier</a>
+            </div>
 
         </div>
 
@@ -43,7 +49,6 @@
         </nav>
 
     </header>
-
 
     <!-- CONTENU PRINCIPAL -->
     <main>
@@ -58,8 +63,54 @@
 
         </section>
 
-    </main>
+        <!-- FORMULAIRE DE COMMANDE -->
+        <section id="formulaire-commande"
+            class="formulaire-commande"
+            style="display: none;">
 
+            <h2>INFORMATIONS DE LIVRAISON</h2>
+
+            <form id="formulaire-client">
+
+                <input
+                    type="text"
+                    id="nom-client"
+                    placeholder="Nom et prénom"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    id="telephone-client"
+                    placeholder="Numéro de téléphone"
+                    required
+                >
+
+                <!-- CHOIX DE LA WILAYA -->
+                <select id="wilaya-client" required>
+                    <option value="">Chargement des wilayas...</option>
+                </select>
+
+                <!-- CHOIX DE LA COMMUNE -->
+                <select id="commune-client" required disabled>
+                    <option value="">Choisir d'abord votre wilaya</option>
+                </select>
+
+                <textarea
+                    id="adresse-client"
+                    placeholder="Votre adresse complète"
+                    required
+                ></textarea>
+
+                <button type="submit">
+                    CONFIRMER MA COMMANDE
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
 
     <!-- FOOTER -->
     <footer>
@@ -67,193 +118,660 @@
     </footer>
 
 
+    <!-- ===================================== -->
     <!-- JAVASCRIPT DU PANIER -->
+    <!-- ===================================== -->
+
     <script>
 
-        // RÉCUPÉRER LES PRODUITS
-        const contenuPanier = document.getElementById("contenu-panier");
+    const contenuPanier = document.getElementById("contenu-panier");
 
-        let panier = JSON.parse(localStorage.getItem("panierGHETTODZ")) || [];
+    let panier = [];
+
+    // RÉCUPÉRER LES PRODUITS
+    try {
+
+        panier = JSON.parse(
+            localStorage.getItem("panierGHETTODZ")
+        ) || [];
+
+        if (!Array.isArray(panier)) {
+            panier = [];
+        }
+
+    } catch (erreur) {
+        panier = [];
+    }
 
 
-        // SAUVEGARDER LE PANIER
-        function sauvegarderEtAfficher() {
+    // SAUVEGARDER LE PANIER
+    function sauvegarderEtAfficher() {
 
-            localStorage.setItem(
-                "panierGHETTODZ",
-                JSON.stringify(panier)
-            );
+        localStorage.setItem(
+            "panierGHETTODZ",
+            JSON.stringify(panier)
+        );
 
-            afficherPanier();
+        afficherPanier();
+
+    }
+
+
+    // AFFICHER LE PANIER
+    function afficherPanier() {
+
+        contenuPanier.innerHTML = "";
+
+        let total = 0;
+
+        // PANIER VIDE
+        if (panier.length === 0) {
+
+            contenuPanier.textContent = "Votre panier est vide.";
+
+            document.getElementById("formulaire-commande").style.display = "none";
+
+            return;
         }
 
 
-        // AFFICHER LE PANIER
-        function afficherPanier() {
+        // AFFICHER CHAQUE PRODUIT
+        panier.forEach(function(produit, index) {
 
-            contenuPanier.innerHTML = "";
-
-            let total = 0;
-
-
-            // VÉRIFIER SI LE PANIER EST VIDE
-            if (panier.length === 0) {
-
-                contenuPanier.textContent = "Votre panier est vide.";
-
-                return;
+            if (!produit.quantite || produit.quantite < 1) {
+                produit.quantite = 1;
             }
 
+            const article = document.createElement("div");
+            article.className = "article-panier";
 
-            // AFFICHER CHAQUE PRODUIT
-            panier.forEach(function(produit, index) {
 
-                // QUANTITÉ PAR DÉFAUT
-                if (!produit.quantite || produit.quantite < 1) {
-                    produit.quantite = 1;
+            // PHOTO
+            const image = document.createElement("img");
+            image.src = produit.image;
+            image.alt = produit.nom;
+
+
+            // DÉTAILS
+            const details = document.createElement("div");
+
+            const nom = document.createElement("h3");
+            nom.textContent = produit.nom;
+
+            const couleur = document.createElement("p");
+            couleur.textContent = "Couleur : " + (produit.couleur || "Non précisée");
+
+            const taille = document.createElement("p");
+            taille.textContent = "Taille : " + (produit.taille || "Non précisée");
+
+            const prix = document.createElement("p");
+            prix.textContent =
+                "Prix unitaire : " +
+                Number(produit.prix).toLocaleString("fr-FR") +
+                " DA";
+
+
+            // QUANTITÉS
+            const quantiteZone = document.createElement("div");
+            quantiteZone.className = "quantite-zone";
+
+
+            // BOUTON MOINS
+            const boutonMoins = document.createElement("button");
+            boutonMoins.textContent = "−";
+
+            boutonMoins.addEventListener("click", function() {
+
+                if (produit.quantite > 1) {
+                    produit.quantite--;
+                    sauvegarderEtAfficher();
                 }
-
-                const article = document.createElement("div");
-                article.className = "article-panier";
-
-
-                // PHOTO
-                const image = document.createElement("img");
-
-                image.src = produit.image;
-                image.alt = produit.nom;
-
-
-                // DÉTAILS
-                const details = document.createElement("div");
-
-                const nom = document.createElement("h3");
-                nom.textContent = produit.nom;
-
-                const couleur = document.createElement("p");
-                couleur.textContent = "Couleur : " + produit.couleur;
-
-                const taille = document.createElement("p");
-                taille.textContent = "Taille : " + produit.taille;
-
-                const prix = document.createElement("p");
-                prix.textContent = "Prix unitaire : " + produit.prix + " DA";
-
-
-                // GESTION DES QUANTITÉS
-                const quantiteZone = document.createElement("div");
-
-                quantiteZone.className = "quantite-zone";
-
-
-                // BOUTON MOINS
-                const boutonMoins = document.createElement("button");
-
-                boutonMoins.textContent = "−";
-
-                boutonMoins.addEventListener("click", function() {
-
-                    if (produit.quantite > 1) {
-
-                        produit.quantite--;
-
-                        sauvegarderEtAfficher();
-
-                    }
-
-                });
-
-
-                // QUANTITÉ
-                const quantite = document.createElement("span");
-
-                quantite.textContent = produit.quantite;
-
-
-                // BOUTON PLUS
-                const boutonPlus = document.createElement("button");
-
-                boutonPlus.textContent = "+";
-
-                boutonPlus.addEventListener("click", function() {
-
-                    produit.quantite++;
-
-                    sauvegarderEtAfficher();
-
-                });
-
-
-                quantiteZone.append(
-                    boutonMoins,
-                    quantite,
-                    boutonPlus
-                );
-
-
-                // SOUS-TOTAL
-                const sousTotal = document.createElement("p");
-
-                sousTotal.textContent =
-                    "Sous-total : " +
-                    (produit.prix * produit.quantite) +
-                    " DA";
-
-
-                total += produit.prix * produit.quantite;
-
-
-                // BOUTON SUPPRIMER
-                const boutonSupprimer = document.createElement("button");
-
-                boutonSupprimer.textContent = "SUPPRIMER";
-
-                boutonSupprimer.className = "supprimer-produit";
-
-                boutonSupprimer.addEventListener("click", function() {
-
-                    panier.splice(index, 1);
-
-                    sauvegarderEtAfficher();
-
-                });
-
-
-                // ASSEMBLER LA CARTE
-                details.append(
-                    nom,
-                    couleur,
-                    taille,
-                    prix,
-                    quantiteZone,
-                    sousTotal
-                );
-
-                article.append(
-                    image,
-                    details,
-                    boutonSupprimer
-                );
-
-                contenuPanier.appendChild(article);
 
             });
 
 
-            // TOTAL GÉNÉRAL
-            const totalElement = document.createElement("h3");
+            // QUANTITÉ
+            const quantite = document.createElement("span");
+            quantite.textContent = produit.quantite;
 
-            totalElement.textContent = "TOTAL : " + total + " DA";
 
-            contenuPanier.appendChild(totalElement);
+            // BOUTON PLUS
+            const boutonPlus = document.createElement("button");
+            boutonPlus.textContent = "+";
+
+            boutonPlus.addEventListener("click", function() {
+
+                produit.quantite++;
+                sauvegarderEtAfficher();
+
+            });
+
+
+            quantiteZone.append(
+                boutonMoins,
+                quantite,
+                boutonPlus
+            );
+
+
+            // SOUS-TOTAL DU PRODUIT
+            const sousTotal = document.createElement("p");
+
+            const montantProduit =
+                Number(produit.prix) * produit.quantite;
+
+            sousTotal.textContent =
+                "Sous-total : " +
+                montantProduit.toLocaleString("fr-FR") +
+                " DA";
+
+            total += montantProduit;
+
+
+            // SUPPRIMER LE PRODUIT
+            const boutonSupprimer = document.createElement("button");
+
+            boutonSupprimer.textContent = "SUPPRIMER";
+            boutonSupprimer.className = "supprimer-produit";
+
+            boutonSupprimer.addEventListener("click", function() {
+
+                panier.splice(index, 1);
+                sauvegarderEtAfficher();
+
+            });
+
+
+            // ASSEMBLER LA CARTE
+            details.append(
+                nom,
+                couleur,
+                taille,
+                prix,
+                quantiteZone,
+                sousTotal
+            );
+
+            article.append(
+                image,
+                details,
+                boutonSupprimer
+            );
+
+            contenuPanier.appendChild(article);
+
+        });
+
+
+        // SOUS-TOTAL GÉNÉRAL
+        const totalElement = document.createElement("h3");
+
+        totalElement.textContent =
+            "SOUS-TOTAL : " +
+            total.toLocaleString("fr-FR") +
+            " DA";
+
+        contenuPanier.appendChild(totalElement);
+
+
+        // RÉCAPITULATIF
+        const livraison = 500;
+        const totalCommande = total + livraison;
+
+        const recap = document.createElement("div");
+        recap.className = "recap-commande";
+
+        recap.innerHTML = `
+            <h3>RÉCAPITULATIF DE COMMANDE</h3>
+
+            <p>
+                Sous-total :
+                <span>${total.toLocaleString("fr-FR")} DA</span>
+            </p>
+
+            <p>
+                Livraison :
+                <span>${livraison.toLocaleString("fr-FR")} DA</span>
+            </p>
+
+            <div class="recap-total">
+                <strong>TOTAL À PAYER :</strong>
+                <span>${totalCommande.toLocaleString("fr-FR")} DA</span>
+            </div>
+        `;
+
+        contenuPanier.appendChild(recap);
+
+
+        // BOUTON PASSER LA COMMANDE
+        const boutonCommande = document.createElement("button");
+
+        boutonCommande.type = "button";
+        boutonCommande.textContent = "PASSER LA COMMANDE";
+        boutonCommande.id = "bouton-passer-commande";
+
+        boutonCommande.addEventListener("click", function() {
+
+            const formulaire = document.getElementById("formulaire-commande");
+
+            formulaire.style.display = "block";
+
+            formulaire.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        });
+
+        contenuPanier.appendChild(boutonCommande);
+
+    }
+
+
+    // LANCER LE PANIER
+    afficherPanier();
+
+    </script>
+
+
+    <!-- ===================================== -->
+    <!-- WILAYAS ET COMMUNES D'ALGERIE -->
+    <!-- ===================================== -->
+
+    <script>
+
+    document.addEventListener("DOMContentLoaded", async function() {
+
+        const selectWilaya = document.getElementById("wilaya-client");
+        const selectCommune = document.getElementById("commune-client");
+
+        const API = "https://syscli.github.io/algeria/api/v1";
+
+        try {
+
+            // CHARGER LES DONNÉES
+            const [repWilayas, repCommunes] = await Promise.all([
+
+                fetch(API + "/wilayas.json"),
+                fetch(API + "/communes.json")
+
+            ]);
+
+            if (!repWilayas.ok || !repCommunes.ok) {
+                throw new Error("Erreur de téléchargement.");
+            }
+
+            const wilayas = await repWilayas.json();
+            const communes = await repCommunes.json();
+
+            if (!Array.isArray(wilayas) || !Array.isArray(communes)) {
+                throw new Error("Format des données incorrect.");
+            }
+
+
+            // AFFICHER LES WILAYAS
+            selectWilaya.innerHTML =
+                '<option value="">Choisir votre wilaya</option>';
+
+            wilayas.sort(function(a, b) {
+
+                return Number(a.code) - Number(b.code);
+
+            });
+
+            wilayas.forEach(function(wilaya) {
+
+                const code = String(
+                    wilaya.code ?? wilaya.id
+                ).padStart(2, "0");
+
+                const nom =
+                    wilaya.nameFr ??
+                    wilaya.name_fr ??
+                    wilaya.name ??
+                    "";
+
+                if (!nom) {
+                    console.warn("Nom de wilaya manquant :", wilaya);
+                }
+
+                const option = document.createElement("option");
+
+                option.value = code;
+                option.textContent = code + " - " + nom;
+
+                selectWilaya.appendChild(option);
+
+            });
+
+
+            // CHOISIR UNE WILAYA
+            selectWilaya.addEventListener("change", function() {
+
+                const codeWilaya = this.value;
+
+                selectCommune.innerHTML =
+                    '<option value="">Choisir votre commune</option>';
+
+                selectCommune.disabled = true;
+
+                if (!codeWilaya) {
+                    return;
+                }
+
+
+                // FILTRER LES COMMUNES
+                const communesWilaya = communes.filter(function(commune) {
+
+                    const codeCommune =
+                        commune.wilayaCode ??
+                        commune.wilaya_code;
+
+                    return String(codeCommune).padStart(2, "0")
+                        === codeWilaya;
+
+                });
+
+
+                // TRIER LES COMMUNES
+                communesWilaya.sort(function(a, b) {
+
+                    const nomA = a.nameFr ?? a.name_fr ?? a.name ?? "";
+                    const nomB = b.nameFr ?? b.name_fr ?? b.name ?? "";
+
+                    return nomA.localeCompare(nomB, "fr");
+
+                });
+
+
+                // AFFICHER LES COMMUNES
+                communesWilaya.forEach(function(commune) {
+
+                    const nom =
+                        commune.nameFr ??
+                        commune.name_fr ??
+                        commune.name ??
+                        "";
+
+                    if (!nom) {
+                        return;
+                    }
+
+                    const option = document.createElement("option");
+
+                    option.value = nom;
+                    option.textContent = nom;
+
+                    selectCommune.appendChild(option);
+
+                });
+
+                selectCommune.disabled = false;
+
+                console.log(
+                    communesWilaya.length +
+                    " communes chargées pour la wilaya " +
+                    codeWilaya
+                );
+
+            });
+
+
+            console.log("Nombre de wilayas :", wilayas.length);
+            console.log("Nombre de communes :", communes.length);
+
+        } catch (erreur) {
+
+            console.error("Erreur de chargement :", erreur);
+
+            selectWilaya.innerHTML =
+                '<option value="">Erreur de chargement des wilayas</option>';
+
+            selectCommune.innerHTML =
+                '<option value="">Communes indisponibles</option>';
 
         }
 
-
-        // PREMIER AFFICHAGE
-        afficherPanier();
+    });
 
     </script>
+
+<!-- ===================================== -->
+<!-- CONNEXION EMAILJS -->
+<!-- ===================================== -->
+
+<script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@5/dist/email.min.js">
+</script>
+
+<script>
+
+    // IDENTIFIANTS EMAILJS GHETTODZ
+    const EMAILJS_SERVICE_ID = "service_invy1yk";
+    const EMAILJS_TEMPLATE_ID = "template_9gyt7wq";
+    const EMAILJS_PUBLIC_KEY = "QiQwhwxL5kMMW4qll";
+
+    // NUMÉRO WHATSAPP GHETTODZ
+    const WHATSAPP_NUMBER = "213553752241";
+
+    // INITIALISATION EMAILJS
+    emailjs.init({
+        publicKey: EMAILJS_PUBLIC_KEY
+    });
+
+
+    // FORMULAIRE DE COMMANDE
+    document.getElementById("formulaire-client").addEventListener(
+        "submit",
+        async function(e) {
+
+            e.preventDefault();
+
+            if (panier.length === 0) {
+                alert("Votre panier est vide.");
+                return;
+            }
+
+            // INFORMATIONS DU CLIENT
+            const nomClient =
+                document.getElementById("nom-client").value.trim();
+
+            const telephone =
+                document.getElementById("telephone-client").value.trim();
+
+            const selectWilaya =
+                document.getElementById("wilaya-client");
+
+            const wilaya =
+                selectWilaya.options[selectWilaya.selectedIndex].text;
+
+            const commune =
+                document.getElementById("commune-client").value;
+
+            const adresse =
+                document.getElementById("adresse-client").value.trim();
+
+
+            // VÉRIFICATION
+            if (
+                !nomClient ||
+                !telephone ||
+                !selectWilaya.value ||
+                !commune ||
+                !adresse
+            ) {
+                alert("Veuillez remplir toutes les informations.");
+                return;
+            }
+
+
+            // DÉTAILS DES PRODUITS
+            let sousTotal = 0;
+
+            const lignesCommande = panier.map(function(produit, index) {
+
+                const quantite = Number(produit.quantite) || 1;
+                const prix = Number(produit.prix) || 0;
+
+                const montant = quantite * prix;
+
+                sousTotal += montant;
+
+                return (
+                    (index + 1) + ". " + produit.nom +
+                    " | Couleur : " + (produit.couleur || "Non précisée") +
+                    " | Taille : " + (produit.taille || "Non précisée") +
+                    " | Quantité : " + quantite +
+                    " | Prix : " + prix.toLocaleString("fr-FR") + " DA" +
+                    " | Sous-total : " + montant.toLocaleString("fr-FR") + " DA"
+                );
+
+            }).join("\n");
+
+
+            // CALCUL DU TOTAL
+            const livraison = 500;
+            const total = sousTotal + livraison;
+
+
+            // VARIABLES DU TEMPLATE EMAILJS
+            const templateParams = {
+
+                nom_client: nomClient,
+                telephone: telephone,
+                wilaya: wilaya,
+                commune: commune,
+                adresse: adresse,
+                commande: lignesCommande,
+                livraison: livraison.toLocaleString("fr-FR") + " DA",
+                total: total.toLocaleString("fr-FR") + " DA"
+
+            };
+
+
+            // MESSAGE WHATSAPP
+            const messageWhatsApp =
+
+                "🛍️ *NOUVELLE COMMANDE GHETTODZ*\n\n" +
+
+                "*Client :* " + nomClient + "\n" +
+                "*Téléphone :* " + telephone + "\n" +
+                "*Wilaya :* " + wilaya + "\n" +
+                "*Commune :* " + commune + "\n" +
+                "*Adresse :* " + adresse + "\n\n" +
+
+                "*DÉTAILS DE LA COMMANDE*\n" +
+                lignesCommande + "\n\n" +
+
+                "*Sous-total :* " +
+                sousTotal.toLocaleString("fr-FR") + " DA\n" +
+
+                "*Livraison :* 500 DA\n" +
+
+                "*TOTAL :* " +
+                total.toLocaleString("fr-FR") + " DA";
+
+
+            // PRÉPARER WHATSAPP
+            const urlWhatsApp =
+                "https://wa.me/" +
+                WHATSAPP_NUMBER +
+                "?text=" +
+                encodeURIComponent(messageWhatsApp);
+
+
+            // OUVRIR WHATSAPP
+            const fenetreWhatsApp =
+                window.open("about:blank", "_blank");
+
+
+            // BOUTON D'ENVOI
+            const boutonEnvoyer =
+                this.querySelector('button[type="submit"]');
+
+            const texteBouton = boutonEnvoyer.textContent;
+
+            boutonEnvoyer.disabled = true;
+            boutonEnvoyer.textContent = "ENVOI DE LA COMMANDE...";
+
+
+            try {
+
+                // ENVOYER L'EMAIL
+                await emailjs.send(
+                    EMAILJS_SERVICE_ID,
+                    EMAILJS_TEMPLATE_ID,
+                    templateParams
+                );
+
+
+                // OUVRIR WHATSAPP APRÈS L'EMAIL
+                if (fenetreWhatsApp) {
+
+                    fenetreWhatsApp.location.href = urlWhatsApp;
+
+                } else {
+
+                    window.location.href = urlWhatsApp;
+
+                }
+
+
+                alert(
+                    "Votre commande a été envoyée par email !\n\n" +
+                    "WhatsApp va s'ouvrir avec votre commande.\n" +
+                    "Appuyez sur ENVOYER dans WhatsApp pour terminer."
+                );
+
+
+                // VIDER LE PANIER APRÈS SUCCÈS EMAIL
+                panier = [];
+
+                localStorage.removeItem("panierGHETTODZ");
+
+                afficherPanier();
+
+                this.reset();
+
+
+            } catch (erreur) {
+
+                console.error("Erreur EmailJS :", erreur);
+
+                // WHATSAPP RESTE DISPONIBLE SI EMAIL ÉCHOUE
+                if (fenetreWhatsApp) {
+
+                    fenetreWhatsApp.location.href = urlWhatsApp;
+
+                } else {
+
+                    window.location.href = urlWhatsApp;
+
+                }
+
+                alert(
+                    "L'envoi par email a échoué.\n\n" +
+                    "Votre commande est préparée sur WhatsApp.\n" +
+                    "Appuyez sur ENVOYER pour nous la transmettre.\n\n" +
+                    "Votre panier est conservé."
+                );
+
+
+            } finally {
+
+                boutonEnvoyer.disabled = false;
+                boutonEnvoyer.textContent = texteBouton;
+
+            }
+
+        }
+    );
+
+</script>
+
+
+</script>
+    
 
 </body>
 </html>

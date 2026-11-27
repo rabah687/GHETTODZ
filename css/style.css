@@ -3765,3 +3765,990 @@ body {
 .ensemble-carte * {
     font-family: 'Poppins', sans-serif;
 }
+
+
+/* =====================================
+   GHETTODZ - DESIGN PREMIUM DU PANIER
+   ===================================== */
+
+/* PAGE DU PANIER */
+.page-panier {
+    max-width: 1150px;
+    min-height: 70vh;
+    margin: 50px auto;
+    padding: 40px 25px;
+    color: white;
+}
+
+/* TITRE MON PANIER */
+.page-panier h2 {
+    text-align: center;
+    color: #d4af37;
+    font-size: 38px;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+    animation: panierTitre 1s ease forwards;
+}
+
+/* ANIMATION DU TITRE */
+@keyframes panierTitre {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CADRE DE CHAQUE PRODUIT */
+.article-panier {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    background: linear-gradient(135deg, #171717, #090909);
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 16px;
+
+    padding: 22px;
+    margin-bottom: 25px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+
+    transition: 0.3s ease;
+    animation: apparitionProduit 0.6s ease both;
+}
+
+/* EFFET AU SURVOL */
+.article-panier:hover {
+    border-color: #d4af37;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    transform: translateY(-4px);
+}
+
+/* ANIMATION DES PRODUITS */
+@keyframes apparitionProduit {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* PHOTO DU PRODUIT */
+.article-panier img {
+    width: 150px;
+    height: 160px;
+    object-fit: cover;
+
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+
+    flex-shrink: 0;
+}
+
+/* NOM DU PRODUIT */
+.article-panier h3 {
+    color: #d4af37;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+/* INFORMATIONS DU PRODUIT */
+.article-panier p {
+    color: #eeeeee;
+    font-size: 15px;
+    margin: 8px 0;
+}
+
+/* ZONE DE QUANTITÉ */
+.quantite-zone {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+/* BOUTONS + ET - */
+.quantite-zone button {
+    width: 38px;
+    height: 38px;
+
+    background: transparent;
+    color: #d4af37;
+
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.quantite-zone button:hover {
+    background: #d4af37;
+    color: #000;
+    transform: scale(1.08);
+}
+
+/* NOMBRE DE PRODUITS */
+.quantite-zone span {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* BOUTON SUPPRIMER */
+.supprimer-produit {
+    margin-left: auto;
+
+    background: transparent;
+    color: #d4af37;
+
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+
+    padding: 12px 18px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.supprimer-produit:hover {
+    background: #d4af37;
+    color: #000;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+}
+
+/* TOTAL DU PANIER */
+#contenu-panier > h3 {
+    text-align: right;
+    color: #d4af37;
+
+    font-size: 28px;
+    margin-top: 35px;
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(212, 175, 55, 0.5);
+}
+
+/* MESSAGE PANIER VIDE */
+#contenu-panier > p {
+    text-align: center;
+    color: #cccccc;
+    font-size: 20px;
+    padding: 50px 15px;
+}
+
+/* =====================================
+   VERSION TÉLÉPHONE
+   ===================================== */
+
+@media (max-width: 700px) {
+
+    .page-panier {
+        margin: 25px auto;
+        padding: 25px 12px;
+    }
+
+    .page-panier h2 {
+        font-size: 28px;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+    }
+
+    .article-panier {
+        gap: 15px;
+        padding: 15px;
+        flex-wrap: wrap;
+    }
+
+    .article-panier img {
+        width: 105px;
+        height: 125px;
+    }
+
+    .article-panier h3 {
+        font-size: 18px;
+    }
+
+    .article-panier p {
+        font-size: 13px;
+    }
+
+    .quantite-zone {
+        gap: 8px;
+    }
+
+    .quantite-zone button {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+
+    .supprimer-produit {
+        margin-left: 0;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    #contenu-panier > h3 {
+        font-size: 23px;
+    }
+}
+
+
+/* =====================================
+   PANNEAU PUBLICITAIRE GHETTODZ
+   ===================================== */
+
+
+.annonce {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
+    overflow: hidden;
+    background: linear-gradient(90deg, #080808, #1a1a1a, #080808);
+    border-bottom: 1px solid #d4af37;
+
+    padding: 13px 0;
+    box-shadow: 0 3px 15px rgba(212, 175, 55, 0.2);
+}
+
+.annonce-texte {
+    display: flex;
+    width: max-content;
+    gap: 70px;
+
+    white-space: nowrap;
+    animation: defilementAnnonce 25s linear infinite;
+}
+
+.annonce-texte span {
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* DÉFILEMENT DU PANNEAU */
+@keyframes defilementAnnonce {
+    from {
+        transform: translateX(100vw);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* VERSION TÉLÉPHONE */
+@media (max-width: 600px) {
+    .annonce {
+        padding: 11px 0;
+    }
+
+    .annonce-texte {
+        gap: 40px;
+        animation-duration: 20s;
+    }
+
+    .annonce-texte span {
+        font-size: 12px;
+    }
+}
+
+/* =====================================
+   GHETTODZ - RÉCAPITULATIF DU PANIER
+   ===================================== */
+
+.recap-commande {
+    width: 100%;
+    max-width: 600px;
+    margin: 35px 0 30px auto;
+    padding: 30px;
+
+    background: linear-gradient(145deg, #181818, #050505);
+
+    border: 1px solid #d4af37;
+    border-radius: 16px;
+
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.12),
+        inset 0 0 15px rgba(212, 175, 55, 0.03);
+
+    box-sizing: border-box;
+
+    animation: apparitionRecap 0.7s ease;
+}
+
+/* TITRE DU RÉCAPITULATIF */
+.recap-commande h3 {
+    color: #d4af37;
+    text-align: center;
+
+    font-size: 23px;
+    letter-spacing: 2px;
+
+    margin: 0 0 25px;
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+/* LIGNES SOUS-TOTAL ET LIVRAISON */
+.recap-commande p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    color: #eeeeee;
+    font-size: 16px;
+
+    margin: 18px 0;
+}
+
+/* MONTANTS */
+.recap-commande p span {
+    color: #d4af37;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* TOTAL À PAYER */
+.recap-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 25px;
+    padding-top: 22px;
+
+    border-top: 1px solid #d4af37;
+
+    color: #d4af37;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* MONTANT FINAL */
+.recap-total span {
+    color: #d4af37;
+    font-size: 22px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+}
+
+/* ANIMATION */
+@keyframes apparitionRecap {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================
+   RESPONSIVE - TÉLÉPHONE
+   ===================================== */
+
+@media (max-width: 600px) {
+
+    .recap-commande {
+        padding: 20px 15px;
+        margin-top: 25px;
+    }
+
+    .recap-commande h3 {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    .recap-commande p {
+        font-size: 14px;
+    }
+
+    .recap-total {
+        font-size: 16px;
+    }
+
+    .recap-total span {
+        font-size: 18px;
+    }
+}
+
+/* BOUTON PASSER LA COMMANDE */
+
+.bouton-commande {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 25px 0 40px auto;
+    padding: 17px;
+
+    background: linear-gradient(135deg, #d4af37, #a67c19);
+    color: #000;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.bouton-commande:hover {
+    background: #f1d36b;
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+}
+
+/* FORMULAIRE CLIENT */
+
+.formulaire-commande {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+
+    background: #111;
+    border: 1px solid #d4af37;
+    border-radius: 15px;
+}
+
+.formulaire-commande h2 {
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.formulaire-commande input,
+.formulaire-commande select,
+.formulaire-commande textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    padding: 15px;
+
+    background: #202020;
+    color: white;
+
+    border: 1px solid #8d732b;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.formulaire-commande textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.formulaire-commande button {
+    width: 100%;
+    padding: 16px;
+
+    background: #d4af37;
+    color: #000;
+
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.formulaire-commande button:hover {
+    background: #f1d36b;
+}
+
+@media (max-width: 600px) {
+    .formulaire-commande {
+        margin: 25px 12px;
+        padding: 20px 15px;
+    }
+}
+
+/* LISTES WILAYA ET COMMUNE */
+
+.formulaire-commande select:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.formulaire-commande select:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+/* =========================================
+   FORMULAIRE DE COMMANDE GHETTODZ
+========================================= */
+
+.formulaire-commande {
+    max-width: 750px;
+    margin: 60px auto;
+    padding: 40px;
+    background: linear-gradient(145deg, #111, #1c1c1c);
+    border: 1px solid #c9a227;
+    border-radius: 18px;
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.15);
+    animation: apparitionCommande 0.8s ease forwards;
+    transition: 0.4s ease;
+}
+
+.formulaire-commande:hover {
+    box-shadow: 0 0 35px rgba(201, 162, 39, 0.35);
+    transform: translateY(-5px);
+}
+
+/* TITRE */
+
+.formulaire-commande h2 {
+    text-align: center;
+    color: #d4af37;
+    font-size: 27px;
+    letter-spacing: 2px;
+    margin-bottom: 35px;
+    position: relative;
+    animation: lumiereTitre 3s infinite alternate;
+}
+
+.formulaire-commande h2::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+    margin: 15px auto 0;
+}
+
+/* FORMULAIRE */
+
+#formulaire-client {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CHAMPS */
+
+#formulaire-client input,
+#formulaire-client select,
+#formulaire-client textarea {
+    width: 100%;
+    padding: 16px;
+    background: #252525;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.35s ease;
+    box-sizing: border-box;
+}
+
+/* PLACEHOLDER */
+
+#formulaire-client input::placeholder,
+#formulaire-client textarea::placeholder {
+    color: #aaa;
+}
+
+/* SURVOL */
+
+#formulaire-client input:hover,
+#formulaire-client select:hover,
+#formulaire-client textarea:hover {
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
+}
+
+/* CLIC */
+
+#formulaire-client input:focus,
+#formulaire-client select:focus,
+#formulaire-client textarea:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+    transform: scale(1.015);
+}
+
+/* OPTIONS WILAYA ET COMMUNE */
+
+#formulaire-client select {
+    cursor: pointer;
+}
+
+#formulaire-client select option {
+    background: #1c1c1c;
+    color: white;
+}
+
+/* ZONE ADRESSE */
+
+#formulaire-client textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* BOUTON CONFIRMATION */
+
+#formulaire-client button {
+    padding: 17px;
+    background: linear-gradient(135deg, #b08d25, #f5d76e, #b08d25);
+    color: #111;
+    border: none;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+#formulaire-client button:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+    background: linear-gradient(135deg, #f5d76e, #d4af37, #f5d76e);
+}
+
+#formulaire-client button:active {
+    transform: scale(0.97);
+}
+
+/* ANIMATION D'APPARITION */
+
+@keyframes apparitionCommande {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ANIMATION DU TITRE */
+
+@keyframes lumiereTitre {
+    from {
+        text-shadow: 0 0 5px rgba(212, 175, 55, 0.2);
+    }
+
+    to {
+        text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+    }
+}
+
+/* VERSION MOBILE */
+
+@media (max-width: 600px) {
+
+    .formulaire-commande {
+        margin: 30px 15px;
+        padding: 25px 18px;
+    }
+
+    .formulaire-commande h2 {
+        font-size: 21px;
+    }
+
+    #formulaire-client input,
+    #formulaire-client select,
+    #formulaire-client textarea {
+        padding: 14px;
+    }
+}
+
+/* =====================================
+   MENUS WILAYA ET COMMUNE
+===================================== */
+
+#wilaya-client,
+#commune-client {
+    width: 100%;
+    padding: 15px 18px;
+    margin-top: 5px;
+
+    background: linear-gradient(145deg, #171717, #080808);
+    color: #d4af37;
+
+    border: 1px solid #8f7525;
+    border-radius: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    outline: none;
+
+    transition: all 0.35s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* EFFET AU SURVOL */
+#wilaya-client:hover,
+#commune-client:hover {
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+    transform: translateY(-2px);
+}
+
+/* EFFET AU CLIC */
+#wilaya-client:focus,
+#commune-client:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 18px rgba(255, 215, 0, 0.45);
+    background: #101010;
+}
+
+/* OPTIONS DES MENUS */
+#wilaya-client option,
+#commune-client option {
+    background: #111111;
+    color: #ffffff;
+    padding: 12px;
+}
+
+/* OPTION SÉLECTIONNÉE */
+#wilaya-client option:checked,
+#commune-client option:checked {
+    background: #b8962e;
+    color: #000000;
+}
+
+/* TEXTE DES MENUS */
+#wilaya-client,
+#commune-client {
+    color-scheme: dark;
+}
+
+/* ADAPTATION MOBILE */
+@media (max-width: 600px) {
+    #wilaya-client,
+    #commune-client {
+        padding: 13px;
+        font-size: 14px;
+    }
+}
+
+/* =========================================
+   GHETTODZ - STYLE COMPLET DES INFORMATIONS
+========================================= */
+
+/* ESPACEMENT DU FORMULAIRE */
+#formulaire-client {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* TOUS LES CHAMPS */
+#formulaire-client input,
+#formulaire-client select,
+#formulaire-client textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 16px 18px;
+
+    background: linear-gradient(145deg, #191919, #080808);
+    color: #ffffff;
+
+    border: 1px solid #8f7525;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    outline: none;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+
+    transition: all 0.35s ease;
+}
+
+/* PLACEHOLDERS */
+#formulaire-client input::placeholder,
+#formulaire-client textarea::placeholder {
+    color: #aaa;
+    transition: 0.3s ease;
+}
+
+/* SURVOL */
+#formulaire-client input:hover,
+#formulaire-client select:hover,
+#formulaire-client textarea:hover {
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+    transform: translateY(-2px);
+}
+
+/* QUAND ON CLIQUE DANS UN CHAMP */
+#formulaire-client input:focus,
+#formulaire-client select:focus,
+#formulaire-client textarea:focus {
+    border-color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    background: #111111;
+    transform: scale(1.01);
+}
+
+/* PLACEHOLDER QUAND LE CHAMP EST ACTIF */
+#formulaire-client input:focus::placeholder,
+#formulaire-client textarea:focus::placeholder {
+    color: #d4af37;
+}
+
+/* MENUS WILAYA ET COMMUNE */
+#formulaire-client select {
+    color: #d4af37;
+    color-scheme: dark;
+    cursor: pointer;
+}
+
+/* OPTIONS */
+#formulaire-client select option {
+    background: #111111;
+    color: #ffffff;
+}
+
+/* ADRESSE */
+#formulaire-client textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* BOUTON DE VALIDATION */
+#formulaire-client button {
+    padding: 16px;
+    border: 1px solid #d4af37;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #d4af37, #f5d76e, #b8860b);
+    color: #080808;
+
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+#formulaire-client button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 22px rgba(255, 215, 0, 0.5);
+}
+
+#formulaire-client button:active {
+    transform: scale(0.97);
+}
+
+/* ADAPTATION TÉLÉPHONE */
+@media (max-width: 600px) {
+    #formulaire-client input,
+    #formulaire-client select,
+    #formulaire-client textarea {
+        padding: 14px;
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================
+   BOUTON PASSER LA COMMANDE - GHETTODZ
+========================================= */
+
+/* CADRE DU BOUTON */
+#contenu-panier button,
+#contenu-panier .passer-commande,
+#contenu-panier #passer-commande {
+    position: relative;
+    display: block;
+
+    width: 100%;
+    max-width: 350px;
+    margin: 25px auto;
+
+    padding: 17px 25px;
+
+    background: linear-gradient(135deg, #171717, #050505);
+    color: #d4af37;
+
+    border: 2px solid #d4af37;
+    border-radius: 14px;
+
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 18px rgba(212, 175, 55, 0.18);
+
+    transition: all 0.4s ease;
+}
+
+/* EFFET LUMINEUX AU SURVOL */
+#contenu-panier button:hover,
+#contenu-panier .passer-commande:hover,
+#contenu-panier #passer-commande:hover {
+    color: #080808;
+    background: linear-gradient(135deg, #b8860b, #ffe58a, #d4af37);
+
+    border-color: #ffe58a;
+
+    transform: translateY(-5px) scale(1.03);
+
+    box-shadow:
+        0 0 12px rgba(255, 215, 0, 0.5),
+        0 0 28px rgba(255, 215, 0, 0.25);
+}
+
+/* EFFET AU CLIC */
+#contenu-panier button:active,
+#contenu-panier .passer-commande:active,
+#contenu-panier #passer-commande:active {
+    transform: scale(0.97);
+}
+
+/* ADAPTATION MOBILE */
+@media (max-width: 600px) {
+    #contenu-panier button,
+    #contenu-panier .passer-commande,
+    #contenu-panier #passer-commande {
+        max-width: 100%;
+        font-size: 14px;
+        padding: 15px;
+    }
+}
