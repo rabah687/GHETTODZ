@@ -576,8 +576,16 @@
             const nomClient =
                 document.getElementById("nom-client").value.trim();
 
-            const telephone =
-                document.getElementById("telephone-client").value.trim();
+const telephone = document
+    .getElementById("telephone-client")
+    .value.trim();
+
+// Vérifier que le téléphone contient exactement 10 chiffres
+if (!/^\d{10}$/.test(telephone)) {
+    alert("⚠️ Le numéro de téléphone doit contenir exactement 10 chiffres.");
+    document.getElementById("telephone-client").focus();
+    return;
+}
 
             const selectWilaya =
                 document.getElementById("wilaya-client");
